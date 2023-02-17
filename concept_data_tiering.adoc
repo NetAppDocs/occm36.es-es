@@ -1,0 +1,129 @@
+---
+sidebar: sidebar 
+permalink: concept_data_tiering.html 
+keywords: storage tiering, tier, tiering, data tiering, s3, s3 tiering, capacity, performance, s3 endpoint, fabric pool, fabricpool, s3 bucket, requirement, vpc endpoint, policy, policies, tiering policies, auto, snapshot only, backup, none, cooling period, volume tiering policies, blob, standard, infrequent access, hot, cool, tiering level, storage tier, storage class 
+summary: Puede reducir los costes de almacenamiento al permitir una organización en niveles automatizada de los datos inactivos en almacenamiento de objetos de bajo coste. 
+---
+= Información general sobre organización en niveles de datos
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Puede reducir sus costes de almacenamiento al permitir organizar en niveles de datos inactivos de forma automatizada en almacenamiento de objetos de bajo coste. Los datos activos permanecen en unidades SSD o HDD de alto rendimiento (el nivel de rendimiento), mientras que los datos inactivos se organizan en niveles en almacenamiento de objetos de bajo coste (el nivel de capacidad). De este modo, podrá recuperar espacio en el almacenamiento primario y reducir el almacenamiento secundario.
+
+Cloud Volumes ONTAP admite la organización en niveles de los datos en AWS y Microsoft Azure. La organización en niveles de datos utiliza la tecnología FabricPool.
+
+
+NOTE: No es necesario instalar una licencia de funciones para habilitar la organización en niveles de datos.
+
+
+
+== Funcionamiento de la organización en niveles de datos en AWS
+
+Al habilitar la organización en niveles de datos en AWS, Cloud Volumes ONTAP utiliza EBS como nivel de rendimiento para los datos activos y AWS S3 como nivel de capacidad para los datos inactivos:
+
+image:diagram_storage_tiering.png["Esta es una imagen conceptual que muestra los datos activos al almacenamiento de EBS y los datos inactivos al almacenamiento S3."]
+
+
+
+=== Nivel de rendimiento en AWS
+
+El nivel de rendimiento puede ser SSD de uso general, SSD de IOPS aprovisionados o HDD optimizados para el rendimiento.
+
+
+
+=== Nivel de capacidad en AWS
+
+De forma predeterminada, Cloud Volumes ONTAP organiza los datos inactivos en la clase de almacenamiento S3 _Standard_. El estándar es ideal para datos a los que se accede con frecuencia almacenados en múltiples zonas de disponibilidad.
+
+Si no tiene pensado acceder a los datos inactivos, puede reducir sus costes de almacenamiento cambiando el nivel de organización en niveles del sistema a uno de los siguientes después de poner en marcha Cloud Volumes ONTAP:
+
+Organización en niveles inteligente:: Optimiza los costes de almacenamiento al mover datos entre dos niveles a medida que cambian los patrones de acceso a datos. Un nivel es para el acceso frecuente y el otro para el acceso poco frecuente.
+Una Zona de acceso poco frecuente:: Para los datos a los que se accede con poca frecuencia almacenados en una única zona de disponibilidad.
+Acceso Estándar-poco frecuente:: Para datos a los que se accede con poca frecuencia almacenados en múltiples zonas de disponibilidad.
+
+
+Los costes de acceso son más elevados si accede a los datos, por lo que debe tener en cuenta antes de cambiar el nivel de organización en niveles. Si quiere más información sobre las clases de almacenamiento S3, consulte https://aws.amazon.com/s3/storage-classes["Documentación de AWS"^].
+
+Cuando cambia el nivel de organización en niveles, los datos inactivos comienzan en la clase de almacenamiento estándar y se mueven a la clase de almacenamiento que seleccionó si no se accede a los datos transcurridos 30 días. Si desea obtener más información sobre cómo cambiar el nivel de organización en niveles, consulte link:task_tiering.html["Organización en niveles de los datos inactivos en almacenamiento de objetos de bajo coste"].
+
+El nivel de organización en niveles es para todo el sistema, no es por volumen.
+
+
+NOTE: Un entorno de trabajo Cloud Volumes ONTAP utiliza un bucket de S3 para todos los datos por niveles del sistema. No se utiliza un bloque de S3 diferente para cada volumen. Esto incluye un entorno de trabajo de alta disponibilidad. Cloud Manager crea un bloque de S3 y lo nombra identificador único_ de estructura-pool-_clúster.
+
+
+
+== Funcionamiento de la organización en niveles de datos en Microsoft Azure
+
+Cuando se habilita la organización en niveles de datos en Azure, Cloud Volumes ONTAP utiliza discos gestionados de Azure como nivel de rendimiento para los datos activos y el almacenamiento de Azure Blob como nivel de capacidad para los datos inactivos:
+
+image:diagram_storage_tiering_azure.png["Esta es una imagen conceptual que muestra los datos activos que se dirigen a discos gestionados de Azure y los datos inactivos al almacenamiento de Azure Blob."]
+
+
+
+=== Nivel de rendimiento en Azure
+
+El nivel de rendimiento puede ser almacenamiento premium (SSD) o almacenamiento estándar (HDD).
+
+
+
+=== Nivel de capacidad en Azure
+
+De forma predeterminada, Cloud Volumes ONTAP organiza los datos inactivos en el nivel de almacenamiento de Azure _hot_, que es ideal para los datos a los que se accede con frecuencia.
+
+Si no tiene pensado acceder a los datos inactivos, puede reducir sus costes de almacenamiento cambiando el nivel de organización en niveles de un sistema al nivel de almacenamiento Azure _COOL_ después de poner en marcha Cloud Volumes ONTAP. El nivel COOL es ideal para los datos a los que se accede con poca frecuencia, que se almacenarán en el nivel durante al menos 30 días.
+
+Los costes de acceso son más elevados si accede a los datos, por lo que debe tener en cuenta antes de cambiar el nivel de organización en niveles. Si quiere más información sobre los niveles de almacenamiento de Azure Blob, consulte https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers["Documentación de Azure"^].
+
+Cuando cambia el nivel de organización en niveles, los datos inactivos comienzan en el nivel de almacenamiento activo y se mueven al nivel de almacenamiento frío, si no se accede a los datos después de 30 días. Si desea obtener más información sobre cómo cambiar el nivel de organización en niveles, consulte link:task_tiering.html["Organización en niveles de los datos inactivos en almacenamiento de objetos de bajo coste"].
+
+El nivel de organización en niveles es para todo el sistema, no es por volumen.
+
+
+NOTE: Un entorno de trabajo de Cloud Volumes ONTAP utiliza un contenedor de Azure Blob para todos los datos por niveles del sistema. No se usa un contenedor diferente para cada volumen. Cloud Manager crea una nueva cuenta de almacenamiento con un contenedor para cada sistema de Cloud Volumes ONTAP. El nombre de la cuenta de almacenamiento es aleatorio.
+
+
+
+== Cómo afecta la organización en niveles de datos a los límites de capacidad
+
+Si se habilita la organización en niveles de datos, el límite de capacidad de un sistema sigue siendo el mismo. El límite se distribuye entre el nivel de rendimiento y el nivel de capacidad.
+
+
+
+== Políticas de organización en niveles del volumen
+
+Para habilitar la organización en niveles de datos, es necesario seleccionar una política de organización en niveles de volumen cuando se crea, se modifica o se replica un volumen. Puede seleccionar una política diferente para cada volumen.
+
+Algunas políticas de organización en niveles tienen un período de refrigeración mínimo asociado, que establece el tiempo en el que los datos de un volumen deben permanecer inactivos para que los datos se consideren "inactivos" y moverse al nivel de capacidad.
+
+Cloud Volumes ONTAP admite las siguientes políticas de organización en niveles:
+
+Solo Snapshot:: Cuando un agregado ha alcanzado la capacidad del 50%, Cloud Volumes ONTAP genera datos de usuarios inactivos de copias Snapshot que no están asociadas con el sistema de archivos activo al nivel de capacidad. El período de enfriamiento es de aproximadamente 2 días.
++
+--
+Si se leen, los bloques de datos inactivos del nivel de capacidad se activan y se mueven al nivel de rendimiento.
+
+--
+Automático:: Después de que un agregado ha alcanzado la capacidad del 50 %, Cloud Volumes ONTAP organiza en niveles bloques de datos inactivos en un volumen en un nivel de capacidad. Los datos inactivos incluyen no solo copias snapshot, sino también datos de usuarios inactivos del sistema de archivos activo. El período de enfriamiento es de aproximadamente 31 días.
++
+--
+Esta política es compatible a partir de Cloud Volumes ONTAP 9.4.
+
+Si las lecturas aleatorias las leen, los bloques de datos fríos del nivel de capacidad se activan y se mueven al nivel de rendimiento. Si las lecturas secuenciales se leen, como las asociadas con el índice y los análisis antivirus, los bloques de datos inactivos permanecen inactivos y no se mueven al nivel de rendimiento.
+
+--
+Backup:: Cuando se replica un volumen para recuperación ante desastres o retención a largo plazo, los datos del volumen de destino se inician en el nivel de capacidad. Si activa el volumen de destino, los datos se mueven gradualmente al nivel de rendimiento a medida que se leen.
+Ninguno:: Mantiene datos de un volumen en el nivel de rendimiento, lo que impide que se mueva al nivel de capacidad.
+
+
+
+
+== Configuración de la organización en niveles de los datos
+
+Para obtener instrucciones y una lista de las configuraciones compatibles, consulte link:task_tiering.html["Organización en niveles de los datos inactivos en almacenamiento de objetos de bajo coste"].

@@ -1,0 +1,101 @@
+---
+sidebar: sidebar 
+permalink: concept_accounts_and_permissions.html 
+keywords: cloud provider accounts, aws, azure, aws account, azure account, keys, service principal, multiple, permissions, policy, policies, json, subscriptions 
+summary: Cloud Manager le permite elegir la cuenta de proveedor de cloud en la que desea implementar un sistema Cloud Volumes ONTAP. Debe conocer los requisitos de los permisos antes de añadir las cuentas a Cloud Manager. 
+---
+= Permisos y cuentas de proveedor de cloud
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Manager le permite elegir la _cuenta de proveedor de cloud_ en la que desea implementar un sistema Cloud Volumes ONTAP. Debe comprender los requisitos de permisos antes de añadir las cuentas a Cloud Manager.
+
+
+
+== Cuentas y permisos de AWS
+
+Puede poner en marcha todos los sistemas Cloud Volumes ONTAP en la cuenta inicial de AWS o configurar cuentas adicionales.
+
+
+
+=== La cuenta inicial de AWS
+
+Al implementar Cloud Manager desde NetApp Cloud Central, necesita utilizar una cuenta de AWS que tenga permisos para iniciar la instancia de Cloud Manager. Los permisos necesarios se enumeran en la https://mysupport.netapp.com/cloudontap/iampolicies["Política central de Cloud de NetApp para AWS"^].
+
+Cuando Cloud Central inicia la instancia de Cloud Manager en AWS, crea un rol IAM y un perfil de instancia para la instancia. También une una política que ofrece permisos para implementar y gestionar Cloud Volumes ONTAP en esa cuenta de AWS. link:reference_permissions.html#what-cloud-manager-does-with-aws-permissions["Revise cómo Cloud Manager utiliza los permisos"].
+
+image:diagram_permissions_initial_aws.png["una imagen conceptual en la que se muestra la implementación de Cloud Manager en una cuenta de AWS de Cloud Central. Se asigna una política IAM a un rol IAM, que se conecta a la instancia de Cloud Manager"]
+
+Cloud Manager selecciona esta cuenta de proveedor de cloud de forma predeterminada al crear un nuevo entorno de trabajo:
+
+image:screenshot_accounts_select_aws.gif["Captura de pantalla que muestra la opción Cambiar cuenta en la página Detalles  Credentials."]
+
+
+
+=== Otras cuentas de AWS
+
+Si desea ejecutar Cloud Volumes ONTAP en diferentes cuentas de AWS, puede hacerlo también link:task_adding_cloud_accounts.html#setting-up-and-adding-aws-accounts-to-cloud-manager["Proporcione las claves AWS para un usuario de IAM o el ARN de un rol en una cuenta de confianza"]. En la siguiente imagen se muestran dos cuentas adicionales, una que proporciona permisos a través de una función IAM en una cuenta de confianza y otra a través de las claves AWS de un usuario de IAM:
+
+image:diagram_permissions_multiple_aws.png["Imagen conceptual que muestra dos cuentas adicionales. Cada uno tiene una política de IAM, una está conectada al usuario del IAM y la otra se conecta a un rol de IAM"]
+
+Entonces lo haría link:task_adding_cloud_accounts.html#adding-aws-accounts-to-cloud-manager["Añada las cuentas de proveedor de cloud a Cloud Manager"] Especificando el nombre de recurso de Amazon (ARN) del rol de IAM o las claves de AWS del usuario de IAM.
+
+Después de agregar otra cuenta, puede cambiar a ella al crear un nuevo entorno de trabajo:
+
+image:screenshot_accounts_switch_aws.gif["Captura de pantalla que muestra cómo seleccionar entre cuentas de proveedores de cloud tras hacer clic en Switch Account en la página Details  Credentials."]
+
+
+
+== Cuentas y permisos de Azure
+
+Puede poner en marcha todos sus sistemas Cloud Volumes ONTAP en la cuenta de Azure inicial o configurar cuentas adicionales.
+
+
+
+=== La cuenta inicial de Azure
+
+Al poner en marcha Cloud Manager desde NetApp Cloud Central, necesita utilizar una cuenta de Azure con permisos para implementar la máquina virtual de Cloud Manager. Los permisos necesarios se enumeran en la https://mysupport.netapp.com/cloudontap/iampolicies["Política Cloud Central de NetApp para Azure"^].
+
+Cuando Cloud Central pone en marcha la máquina virtual de Cloud Manager en Azure, habilita una https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview["identidad administrada asignada por el sistema"^] En la máquina virtual de Cloud Manager, crea un rol personalizado y lo asigna a la máquina virtual. El rol proporciona permisos para implementar y gestionar Cloud Volumes ONTAP en esa suscripción de Azure. link:reference_permissions.html#what-cloud-manager-does-with-azure-permissions["Revise cómo Cloud Manager utiliza los permisos"].
+
+image:diagram_permissions_initial_azure.png["Imagen conceptual en la que se muestra la implementación de Cloud Manager en una cuenta y una suscripción de Azure Central. Se habilita una identidad administrada asignada por el sistema y se asigna una función personalizada a la máquina virtual de Cloud Manager."]
+
+Cloud Manager selecciona esta cuenta de proveedor de cloud de forma predeterminada al crear un nuevo entorno de trabajo:
+
+image:screenshot_accounts_select_azure.gif["Captura de pantalla que muestra la opción Cambiar cuenta en la página Detalles  Credentials."]
+
+
+
+=== Suscripciones adicionales de Azure para la cuenta inicial
+
+La identidad administrada está asociada a la suscripción en la que inició Cloud Manager. Si desea seleccionar una suscripción de Azure diferente, tendrá que hacerlo link:task_adding_cloud_accounts.html#associating-additional-azure-subscriptions-with-a-managed-identity["asocie la identidad administrada a esas suscripciones"].
+
+
+
+=== Otras cuentas de Azure
+
+Si desea implementar Cloud Volumes ONTAP en diferentes cuentas de Azure, debe conceder los permisos necesarios mediante link:task_adding_cloud_accounts.html#setting-up-and-adding-azure-accounts-to-cloud-manager["Crear y configurar un servicio principal en Azure Active Directorio"] Para cada cuenta de Azure. La siguiente imagen muestra dos cuentas adicionales, cada una configurada con una función personalizada y principal de servicio que proporciona permisos:
+
+image:diagram_permissions_multiple_azure.png["Una imagen conceptual que muestra la cuenta inicial de Azure, que recibe permisos a través de una función personalizada y una identidad administrada, y dos cuentas adicionales que reciben permisos a través de una función personalizada y una entidad de servicio."]
+
+Entonces lo haría link:task_adding_cloud_accounts.html#adding-azure-accounts-to-cloud-manager["Añada las cuentas de proveedor de cloud a Cloud Manager"] Proporcionando detalles acerca del director de servicio de AD.
+
+Después de agregar otra cuenta, puede cambiar a ella al crear un nuevo entorno de trabajo:
+
+image:screenshot_accounts_switch_azure.gif["Captura de pantalla que muestra cómo seleccionar entre cuentas de proveedores de cloud tras hacer clic en Switch Account en la página Details  Credentials."]
+
+.¿Qué pasa con las puestas en marcha de Marketplace y las puestas en marcha en las instalaciones?
+****
+En las secciones anteriores se describe el método de implementación recomendado de NetApp Cloud Central. También puede poner en marcha Cloud Manager desde el link:task_launching_aws_mktp.html["Mercado AWS"], la link:task_launching_azure_mktp.html["Azure Marketplace"], y usted puede link:task_installing_linux.html["Instale Cloud Manager en las instalaciones"].
+
+Si utiliza cualquiera de las plataformas, los permisos se proporcionan de la misma manera. Solo tiene que crear y configurar manualmente la función IAM o la identidad gestionada para Cloud Manager y, a continuación, proporcionar permisos para cualquier cuenta adicional.
+
+En el caso de las implementaciones locales, no puede configurar una función de IAM ni una identidad gestionada para el sistema Cloud Manager, pero puede proporcionar permisos como lo haría con cuentas adicionales.
+
+****

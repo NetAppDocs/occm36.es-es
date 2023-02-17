@@ -1,0 +1,85 @@
+---
+sidebar: sidebar 
+permalink: reference_deployment_overview.html 
+keywords: installation, installing, install, setting up, set up, setup, deploy, deployment, c2s, commerical cloud services, ic, intelligence community 
+summary: Antes de empezar, es posible que desee comprender mejor las opciones que existen para poner en marcha Cloud Manager y Cloud Volumes ONTAP de OnCommand. 
+---
+= Información general sobre la implementación
+:toc: macro
+:hardbreaks:
+:allow-uri-read: 
+:toc: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:toc-position: content
+
+
+[role="lead"]
+Antes de empezar, es posible que desee comprender mejor las opciones que existen para poner en marcha Cloud Manager y Cloud Volumes ONTAP de OnCommand.
+
+
+
+== Instalación de Cloud Manager
+
+Se necesita software Cloud Manager para poner en marcha y gestionar Cloud Volumes ONTAP. Puede implementar Cloud Manager en cualquiera de las siguientes ubicaciones:
+
+* Amazon Web Services (AWS)
+* Microsoft Azure
+* Cloud de IBM
+* En su propia red
+
+
+La forma en que ponga en marcha Cloud Manager depende de la ubicación que elija:
+
+[cols="35,65"]
+|===
+| Ubicación | Cómo poner en marcha Cloud Manager 
+
+
+| AWS | link:task_getting_started_aws.html["Ponga en marcha Cloud Manager desde NetApp Cloud Central"] 
+
+
+| AWS C2S | link:media/c2s.pdf["Ponga en marcha Cloud Manager desde AWS Intelligence Community Marketplace"^] 
+
+
+| Azure región generalmente disponible | link:task_getting_started_azure.html["Ponga en marcha Cloud Manager desde NetApp Cloud Central"] 
+
+
+| Gobierno de Azure | link:task_installing_azure_gov.html["Ponga en marcha Cloud Manager desde Azure US Government Marketplace"] 
+
+
+| Azure Alemania | link:task_installing_azure_germany.html["Descargue e instale el software en un host Linux"] 
+
+
+| Cloud de IBM | link:task_installing_linux.html["Descargue e instale el software en un host Linux"] 
+
+
+| Red local | link:task_installing_linux.html["Descargue e instale el software en un host Linux"] 
+|===
+
+
+== Configuración de Cloud Manager
+
+Puede que desee realizar una configuración adicional después de instalar Cloud Manager, como añadir cuentas de proveedor de cloud adicionales, instalar un certificado HTTPS, etc.
+
+* link:task_adding_cloud_accounts.html["Adición de cuentas de proveedor de cloud a Cloud Manager"]
+* link:task_installing_https_cert.html["Instalar un certificado HTTPS"]
+* link:task_setting_up_users_tenants.html["Configurar usuarios e inquilinos"]
+* link:task_setting_up_kms.html["Configuración de AWS KMS"]
+
+
+
+
+== Puesta en marcha de Cloud Volumes ONTAP
+
+Después de tener Cloud Manager instalado, puede empezar a implementar Cloud Volumes ONTAP en AWS y en Microsoft Azure.
+
+link:task_getting_started_aws.html["Introducción a AWS"] y.. link:task_getting_started_azure.html["Introducción a Azure"] Proporcionar instrucciones para poner en funcionamiento Cloud Volumes ONTAP rápidamente. Si necesita ayuda adicional, consulte lo siguiente:
+
+* https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_supported_configs_95.html["Configuraciones compatibles para Cloud Volumes ONTAP 9.5"^]
+* link:task_planning_your_config.html["Planificación de la configuración"]
+* link:task_deploying_otc_aws.html["Inicio de Cloud Volumes ONTAP en AWS"]
+* link:task_deploying_otc_azure.html["Inicio de Cloud Volumes ONTAP en Azure"]
+

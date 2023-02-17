@@ -1,0 +1,29 @@
+---
+sidebar: sidebar 
+permalink: reference_before.html 
+keywords: prerequisites, requirements, before 
+summary: Antes de usar Cloud Manager para crear y gestionar sistemas Cloud Volumes ONTAP, su administrador de Cloud Manager debe haber preparado una red, instalar y configurar Cloud Manager. 
+---
+= Antes de crear sistemas Cloud Volumes ONTAP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Antes de usar Cloud Manager para crear y gestionar sistemas Cloud Volumes ONTAP, su administrador de Cloud Manager debe haber preparado una red, instalar y configurar Cloud Manager.
+
+Su administrador debe haber seguido las instrucciones para ponerse en marcha link:task_getting_started_aws.html["En AWS"] o. link:task_getting_started_azure.html["En Azure"], y opcionalmente link:task_adding_cloud_accounts.html["Configure Cloud Manager"].
+
+Antes de iniciar la implementación de Cloud Volumes ONTAP, deben existir las siguientes condiciones:
+
+* Se cumplieron los requisitos de red de AWS y Azure para Cloud Manager y Cloud Volumes ONTAP.
+* Cloud Manager cuenta con permisos para realizar operaciones en AWS y Azure en su nombre.
+* Cada producto Cloud Volumes ONTAP al que se pondrán en marcha los usuarios está suscrito desde AWS Marketplace.
+* Se instaló Cloud Manager.
+* (Opcional) se definieron inquilinos adicionales.
+* (Opcional) se crearon cuentas de usuario adicionales, que pueden incluir administradores de inquilinos y administradores de entornos de trabajo.
+

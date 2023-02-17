@@ -1,0 +1,33 @@
+---
+sidebar: sidebar 
+permalink: task_uninstalling.html 
+keywords: uninstalling, uninstall, reinstall 
+summary: Cloud Manager incluye un script de desinstalación que puede utilizar para desinstalar el software para resolver problemas o quitar de forma permanente el software del host. 
+---
+= Desinstalando Cloud Manager
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Manager incluye un script de desinstalación que puede utilizar para desinstalar el software para resolver problemas o quitar de forma permanente el software del host.
+
+.Pasos
+. Si va a volver a instalar Cloud Manager, realice una copia de seguridad de la base de datos antes de desinstalar el software:
++
+.. En la esquina superior derecha de la consola de Cloud Manager, haga clic en la lista desplegable de tareas y, a continuación, seleccione *Herramientas*.
+.. Haga clic en *copia de seguridad* y guarde el archivo de copia de seguridad en su equipo local.
+
+
+. Desde el host Linux, ejecute el script de desinstalación:
++
+*/opt/application/netapp/cloudmanager/bin/uninstall.sh [silent]*
+
++
+_silent_ ejecuta la secuencia de comandos sin que se le solicite confirmación.
+
+

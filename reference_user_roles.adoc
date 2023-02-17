@@ -1,0 +1,76 @@
+---
+sidebar: sidebar 
+permalink: reference_user_roles.html 
+keywords: user, role, task, permission, permissions, tasks, roles, admin, cloud manager admin, admin, tenant admin, working environment admin 
+summary: A cada cuenta de usuario de Cloud Manager se le asigna un rol que define los permisos. 
+---
+= Roles de usuario
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+A cada cuenta de usuario de Cloud Manager se le asigna un rol que define los permisos.
+
+[cols="25,25,25,25"]
+|===
+| Tarea | Administrador de Cloud Manager | Administrador de inquilinos | Administrador del entorno de trabajo 
+
+
+| Gestione inquilinos | Sí | No | No 
+
+
+| Gestionar entornos de trabajo | Sí | Sí, para el arrendatario asignado | Sí, para entornos de trabajo asignados 
+
+
+| Integrar un entorno de trabajo con Cloud Sync | Sí | Sí | No 
+
+
+| Ver el estado de replicación de datos | Sí | Sí, para el arrendatario asignado | Sí, para entornos de trabajo asignados 
+
+
+| Visualice la línea de tiempo | Sí | Sí | Sí 
+
+
+| Crear y eliminar cuentas de usuario | Sí | Sí, para el arrendatario asignado | No 
+
+
+| Modificar cuentas de usuario | Sí | Sí, para el arrendatario asignado | Sí, por su propia cuenta 
+
+
+| Administrar la configuración de la cuenta | Sí | No | No 
+
+
+| Configurar Kubernetes | Sí | No | No 
+
+
+| Cambie entre la vista del sistema de almacenamiento y la vista de volumen | Sí | No | No 
+
+
+| Modificar configuración | Sí | No | No 
+
+
+| Consulte y gestione la consola de soporte | Sí | No | No 
+
+
+| Realice backups y restaure Cloud Manager | Sí | No | No 
+
+
+| Eliminar un entorno de trabajo | Sí | No | No 
+
+
+| Actualice Cloud Manager | Sí | No | No 
+
+
+| Instale un certificado HTTPS | Sí | No | No 
+
+
+| Configurar Active Directory | Sí | No | No 
+
+
+| Habilite el Cloud Storage Automation Report | Sí | No | No 
+|===

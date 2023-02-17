@@ -1,0 +1,54 @@
+---
+sidebar: sidebar 
+permalink: task_setting_up_users_tenants.html 
+keywords: users, adding, creating, tenants 
+summary: Cloud Manager le permite añadir usuarios de Cloud Central adicionales a Cloud Manager y aislar entornos de trabajo mediante el uso de inquilinos. 
+---
+= Configurar usuarios e inquilinos
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Manager le permite añadir usuarios de Cloud Central adicionales a Cloud Manager y aislar entornos de trabajo mediante el uso de inquilinos.
+
+
+
+== Añadiendo usuarios a Cloud Manager
+
+Si otros usuarios necesitan usar su sistema Cloud Manager, deben registrarse para obtener una cuenta en Cloud Central de NetApp. A continuación, puede agregar usuarios a Cloud Manager.
+
+.Pasos
+. Si el usuario aún no tiene una cuenta en Cloud Central de NetApp, envíenos un enlace a su sistema Cloud Manager y haga que se registren.
++
+Espere hasta que el usuario confirme que se ha registrado para una cuenta.
+
+. En Cloud Manager, haga clic en el icono de usuario y, a continuación, haga clic en *Ver usuarios*.
+. Haga clic en *Nuevo usuario*.
+. Introduzca la dirección de correo electrónico asociada a la cuenta de usuario, seleccione una función y haga clic en *Agregar*.
+
+
+.El futuro
+Informe al usuario de que ahora puede iniciar sesión en el sistema Cloud Manager.
+
+
+
+== Creación de inquilinos
+
+Los inquilinos le permiten aislar sus entornos de trabajo en grupos separados. Se crean uno o más entornos de trabajo dentro de un inquilino. link:concept_storage_management.html#storage-isolation-using-tenants["Más información acerca de los inquilinos"].
+
+.Pasos
+. Haga clic en el icono arrendatarios y, a continuación, haga clic en *Agregar arrendatario*.
++
+image:screenshot_tenants_icon.gif["Captura de pantalla: Muestra el icono de inquilino (un pin) y el botón Agregar arrendatario, que están disponibles en la parte superior derecha de la consola de Cloud Manager."]
+
+. Introduzca un nombre, una descripción y un centro de costes, si es necesario.
+. Haga clic en *Guardar*.
+
+
+.El futuro
+Ahora puede cambiar a este nuevo inquilino y agregar administradores de inquilino y administradores de entorno de trabajo a este inquilino.

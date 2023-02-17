@@ -1,0 +1,216 @@
+---
+settings:
+  name: Cloud Manager 3.6
+  nss_product: OnCommand Cloud Manager
+  downlevel: true
+  internal:
+    pdf_enabled: false
+  prod:
+    pdf_enabled: true
+    harmony_enabled: false
+  langs: es-es,us-en,ja-jp,ko-kr,zh-cn,zh-tw,de-de,fr-fr
+sidebar:
+  entries:
+  - title: Documentos de Cloud Manager 3.6
+    url: "/index.html"
+  - title: Notas de la versión
+    entries:
+    - title: Cloud Manager
+      entries:
+      - title: Novedades
+        url: "/reference_new_occm.html"
+      - title: Problemas conocidos
+        url: "/reference_issues.html"
+      - title: Limitaciones conocidas
+        url: "/reference_limitations.html"
+    - title: Cloud Volumes ONTAP
+      url: https://docs.netapp.com/us-en/cloud-volumes-ontap/
+  - title: Conceptos
+    entries:
+    - title: Información general del producto
+      url: "/concept_overview.html"
+    - title: Cloud Central de NetApp
+      url: "/concept_cloud_central.html"
+    - title: Cuentas y permisos
+      url: "/concept_accounts_and_permissions.html"
+    - title: Reducida
+      entries:
+      - title: Descripción general
+        url: "/concept_storage.html"
+      - title: Organización en niveles de los datos
+        url: "/concept_data_tiering.html"
+      - title: Gestión del almacenamiento
+        url: "/concept_storage_management.html"
+      - title: Almacenamiento WORM
+        url: "/concept_worm.html"
+    - title: Pares de alta disponibilidad
+      entries:
+      - title: Parejas de HA en AWS
+        url: "/concept_ha.html"
+      - title: Parejas de HA en Azure
+        url: "/concept_ha_azure.html"
+    - title: Evaluación
+      url: "/concept_evaluating.html"
+    - title: Licencia
+      url: "/concept_licensing.html"
+    - title: Seguridad
+      url: "/concept_security.html"
+    - title: Rendimiento
+      url: "/concept_performance.html"
+  - title: Primeros pasos
+    entries:
+    - title: Información general sobre la implementación
+      url: "/reference_deployment_overview.html"
+    - title: Introducción a AWS
+      url: "/task_getting_started_aws.html"
+    - title: Introducción a Azure
+      url: "/task_getting_started_azure.html"
+    - title: Configurar Cloud Manager
+      entries:
+      - title: Añadiendo cuentas de proveedores de cloud
+        url: "/task_adding_cloud_accounts.html"
+      - title: Adición de cuentas del sitio de soporte de NetApp
+        url: "/task_adding_nss_accounts.html"
+      - title: Instalar un certificado HTTPS
+        url: "/task_installing_https_cert.html"
+      - title: Configurar usuarios e inquilinos
+        url: "/task_setting_up_users_tenants.html"
+      - title: Configuración de AWS KMS
+        url: "/task_setting_up_kms.html"
+    - title: Requisitos de red
+      entries:
+      - title: Cloud Manager
+        url: "/reference_networking_cloud_manager.html"
+      - title: Cloud Volumes ONTAP para AWS
+        url: "/reference_networking_aws.html"
+      - title: Configuración de una puerta de enlace de tránsito de AWS
+        url: "/task_setting_up_transit_gateway.html"
+      - title: Cloud Volumes ONTAP para Azure
+        url: "/reference_networking_azure.html"
+    - title: Opciones adicionales de puesta en marcha
+      entries:
+      - title: Requisitos del host de Cloud Manager
+        url: "/reference_cloud_mgr_reqs.html"
+      - title: Instalar Cloud Manager en un host Linux
+        url: "/task_installing_linux.html"
+      - title: Ponga en marcha Cloud Manager desde AWS Marketplace
+        url: "/task_launching_aws_mktp.html"
+      - title: Ponga en marcha Cloud Manager desde Azure Marketplace
+        url: "/task_launching_azure_mktp.html"
+      - title: Implementación de Cloud Manager en una región Gov de Azure
+        url: "/task_installing_azure_gov.html"
+      - title: Implementando Cloud Manager en la región de Azure Alemania
+        url: "/task_installing_azure_germany.html"
+      - title: Introducción al entorno AWS C2S
+        url: "/media/c2s.pdf"
+  - title: Implementar Cloud Volumes ONTAP
+    entries:
+    - title: Antes de empezar
+      url: "/reference_before.html"
+    - title: Inicio de sesión en Cloud Manager
+      url: "/task_logging_in.html"
+    - title: Planificación de la configuración
+      url: "/task_planning_your_config.html"
+    - title: Habilitación de Flash Cache en Cloud Volumes ONTAP en AWS
+      url: "/task_enabling_flash_cache.html"
+    - title: Inicio de Cloud Volumes ONTAP en AWS
+      url: "/task_deploying_otc_aws.html"
+    - title: Inicio de Cloud Volumes ONTAP en Azure
+      url: "/task_deploying_otc_azure.html"
+    - title: Registro de sistemas de pago por uso
+      url: "/task_registering.html"
+    - title: Configurar Cloud Volumes ONTAP
+      url: "/task_setting_up_ontap_cloud.html"
+  - title: Aprovisionar almacenamiento
+    entries:
+    - title: Crear volúmenes, agregados y LUN
+      url: "/task_provisioning_storage.html"
+    - title: Organización en niveles de los datos inactivos en el almacenamiento de
+        objetos
+      url: "/task_tiering.html"
+    - title: Usar Cloud Volumes ONTAP como almacenamiento persistente
+      url: "/task_connecting_kubernetes.html"
+    - title: Cifrar volúmenes con cifrado de volúmenes de NetApp
+      url: "/task_encrypting_volumes.html"
+    - title: Gestión del almacenamiento existente
+      url: "/task_managing_storage.html"
+    - title: Aprovisionar volúmenes NFS desde la vista de volumen
+      entries:
+      - title: Cambio a la vista de volumen
+        url: "/task_changing_volume_view.html"
+      - title: Crear y montar volúmenes de NFS
+        url: "/task_provisioning_volume_view.html"
+      - title: Gestionar volúmenes NFS
+        url: "/task_managing_volume_view.html"
+  - title: Gestionar los datos en un cloud híbrido
+    entries:
+    - title: Detectar y gestionar clústeres de ONTAP
+      url: "/task_discovering_ontap.html"
+    - title: Replicar datos hacia y desde el cloud
+      url: "/task_replicating_data.html"
+    - title: Sincronizando datos en AWS S3
+      url: "/task_syncing_s3.html"
+  - title: Administración de Cloud Volumes ONTAP
+    entries:
+    - title: Conectando a Cloud Volumes ONTAP
+      url: "/task_connecting_to_otc.html"
+    - title: Actualizando software
+      url: "/task_updating_ontap_cloud.html"
+    - title: Modificación de las configuraciones del sistema
+      url: "/task_modifying_ontap_cloud.html"
+    - title: Sistemas de parada y arranque
+      url: "/task_managing_state.html"
+    - title: Supervisar los costes de AWS
+      url: "/task_monitoring_costs.html"
+    - title: Mejorar la protección contra ransomware
+      url: "/task_protecting_ransomware.html"
+    - title: Adición de sistemas existentes
+      url: "/task_adding_ontap_cloud.html"
+    - title: Eliminación de sistemas
+      url: "/task_deleting_working_env.html"
+  - title: Administración de Cloud Manager
+    entries:
+    - title: Actualizando Cloud Manager
+      url: "/task_updating_cloud_manager.html"
+    - title: Copia de seguridad y restauración
+      url: "/task_backing_up_restoring.html"
+    - title: Eliminación de entornos de trabajo
+      url: "/task_removing.html"
+    - title: Editar cuentas de usuario
+      url: "/task_editing_users.html"
+    - title: Configurando la configuración del proxy
+      url: "/task_configuring_proxy.html"
+    - title: Renovando el certificado HTTPS
+      url: "/task_renewing_cert.html"
+    - title: Desinstalando Cloud Manager
+      url: "/task_uninstalling.html"
+  - title: API y automatización
+    entries:
+    - title: Guía para desarrolladores de API
+      url: https://docs.netapp.com/us-en/occm/api.html
+    - title: Muestras de automatización
+      url: "/reference_infrastructure_as_code.html"
+  - title: Referencia
+    entries:
+    - title: Preguntas más frecuentes sobre la integración de Cloud Central
+      url: "/reference_integration_faq.html"
+    - title: Configuraciones para Cloud Volumes ONTAP admitidas
+      url: https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_supported_configs_95.html
+    - title: Regiones admitidas
+      url: https://cloud.netapp.com/cloud-volumes-global-regions
+    - title: Reglas de grupos de seguridad para AWS
+      url: "/reference_security_groups.html"
+    - title: Reglas de grupos de seguridad para Azure
+      url: "/reference_security_groups_azure.html"
+    - title: Permisos
+      url: "/reference_permissions.html"
+    - title: Configuraciones predeterminadas
+      url: "/reference_default_configs.html"
+    - title: Roles de usuario
+      url: "/reference_user_roles.html"
+    - title: Enlaces relacionados
+      url: "/reference_additional_info.html"
+  - title: Versiones anteriores
+    url: "/reference_earlier_versions.html"
+  - title: Avisos legales
+    url: "/reference_legal_notices.html"

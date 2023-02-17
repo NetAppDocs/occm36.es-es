@@ -1,0 +1,182 @@
+---
+sidebar: sidebar 
+permalink: task_provisioning_storage.html 
+keywords: storage, provisioning, iscsi, nfs, cifs, volumes, aggregates, provision, create, quotas, nas, san, LUNs, quotas, qtree, add, advanced allocation 
+summary: Puede aprovisionar almacenamiento NFS y CIFS adicional para sus sistemas Cloud Volumes ONTAP desde Cloud Manager gestionando volúmenes y agregados. 
+---
+= Aprovisionar almacenamiento
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Puede aprovisionar almacenamiento NFS y CIFS adicional para sus sistemas Cloud Volumes ONTAP desde Cloud Manager gestionando volúmenes y agregados. Si necesita crear almacenamiento iSCSI, debe hacerlo desde System Manager.
+
+
+IMPORTANT: Todos los discos y agregados deben crearse y eliminarse directamente desde Cloud Manager. No debe realizar estas acciones desde otra herramienta de gestión. De esta manera, se puede afectar a la estabilidad del sistema, se puede obstaculizar la capacidad de añadir discos en el futuro y generar potencialmente cuotas redundantes para proveedores de cloud.
+
+image:workflow_storage_provisioning.png["En esta ilustración, se muestran los pasos para aprovisionar almacenamiento para Cloud Volumes ONTAP: Si utiliza NFS, cree volúmenes en Cloud Manager y si utiliza CIFS o iSCSI, cree agregados en Cloud Manager y, a continuación, aprovisione almacenamiento en System Manager."]
+
+
+
+== Aprovisionamiento de volúmenes
+
+Si necesita más almacenamiento después de iniciar un sistema Cloud Volumes ONTAP, puede aprovisionar nuevos volúmenes NFS y CIFS desde Cloud Manager.
+
+.Antes de empezar
+Si desea usar CIFS en AWS, debe haber configurado DNS y Active Directory. Para obtener más información, consulte link:reference_networking_aws.html["Requisitos de red para Cloud Volumes ONTAP para AWS"].
+
+.Pasos
+. En la página Working Environments, haga doble clic en el nombre del sistema Cloud Volumes ONTAP en el que desea aprovisionar volúmenes.
+. Cree un nuevo volumen en cualquier agregado o en un agregado específico:
++
+[cols="30,70"]
+|===
+| Acción | Pasos 
+
+
+| Cree un nuevo volumen y deje que Cloud Manager elija el con el agregado | Haga clic en *Añadir nuevo volumen*. 
+
+
+| Cree un nuevo volumen en un agregado específico  a| 
+.. Haga clic en el icono de menú y, a continuación, haga clic en *Avanzado > asignación avanzada*.
+.. Haga clic en el menú de un agregado.
+.. Haga clic en *Crear volumen*.
+
+
+|===
+. Introduzca los detalles del nuevo volumen y, a continuación, haga clic en *continuar*.
++
+Algunos de los campos en esta página son claros y explicativos. En la siguiente tabla se describen los campos que podrían presentar dificultades:
+
++
+[cols="30,70"]
+|===
+| Campo | Descripción 
+
+
+| Tamaño | El tamaño máximo que puede introducir depende en gran medida de si habilita thin provisioning, lo que le permite crear un volumen que sea mayor que el almacenamiento físico que hay disponible actualmente. 
+
+
+| Control de acceso (solo para NFS) | Una política de exportación define los clientes de la subred que pueden acceder al volumen. De forma predeterminada, Cloud Manager introduce un valor que proporciona acceso a todas las instancias de la subred. 
+
+
+| Permisos y usuarios/grupos (solo para CIFS) | Estos campos permiten controlar el nivel de acceso a un recurso compartido para usuarios y grupos (también denominados listas de control de acceso o ACL). Es posible especificar usuarios o grupos de Windows locales o de dominio, o usuarios o grupos de UNIX. Si especifica un nombre de usuario de Windows de dominio, debe incluir el dominio del usuario con el formato domain\username. 
+
+
+| Política de Snapshot | Una política de copia de Snapshot especifica la frecuencia y el número de copias de Snapshot de NetApp creadas automáticamente. Una copia snapshot de NetApp es una imagen del sistema de archivos puntual que no afecta al rendimiento y requiere un almacenamiento mínimo. Puede elegir la directiva predeterminada o ninguna. Es posible que no elija ninguno para los datos transitorios: Por ejemplo, tempdb para Microsoft SQL Server. 
+|===
+. Si ha elegido el protocolo CIFS y no se ha configurado el servidor CIFS, especifique los detalles del servidor en el cuadro de diálogo Crear un servidor CIFS y, a continuación, haga clic en *Guardar y continuar*:
++
+[cols="30,70"]
+|===
+| Campo | Descripción 
+
+
+| DNS Dirección IP principal y secundaria | Las direcciones IP de los servidores DNS que proporcionan resolución de nombres para el servidor CIFS. Los servidores DNS enumerados deben contener los registros de ubicación de servicio (SRV) necesarios para localizar los servidores LDAP de Active Directory y los controladores de dominio del dominio al que se unirá el servidor CIFS. 
+
+
+| Dominio de Active Directory al que unirse | El FQDN del dominio de Active Directory (AD) al que desea que se una el servidor CIFS. 
+
+
+| Credenciales autorizadas para unirse al dominio | Nombre y contraseña de una cuenta de Windows con privilegios suficientes para agregar equipos a la unidad organizativa (OU) especificada dentro del dominio AD. 
+
+
+| Nombre NetBIOS del servidor CIFS | Nombre de servidor CIFS que es único en el dominio de AD. 
+
+
+| Unidad organizacional | La unidad organizativa del dominio AD para asociarla con el servidor CIFS. El valor predeterminado es CN=Computers. 
+
+
+| Dominio DNS | El dominio DNS para la máquina virtual de almacenamiento (SVM) de Cloud Volumes ONTAP. En la mayoría de los casos, el dominio es el mismo que el dominio de AD. 
+
+
+| Servidor NTP | Seleccione *usar dominio de Active Directory* para configurar un servidor NTP mediante el DNS de Active Directory. Si necesita configurar un servidor NTP con una dirección diferente, debe usar la API. Consulte link:api.html["Guía para desarrolladores de API de Cloud Manager"^] para obtener más detalles. 
+|===
+. En la página Usage Profile, Disk Type y Tiering Policy, elija si desea habilitar las funciones de eficiencia del almacenamiento, elija un tipo de disco y edite la política de organización en niveles de S3, si es necesario.
++
+Si necesita ayuda, consulte lo siguiente:
+
++
+** link:task_planning_your_config.html#choosing-a-volume-usage-profile["Descripción de los perfiles de uso de volumen"]
+** link:task_planning_your_config.html#sizing-your-system-in-aws["Ajuste de tamaño de su sistema en AWS"]
+** link:task_planning_your_config.html#sizing-your-system-in-azure["Ajuste de tamaño de su sistema en Azure"]
+** link:concept_data_tiering.html["Información general sobre organización en niveles de datos"]
+
+
+. Haga clic en *Ir*.
+
+
+.Resultado
+Cloud Volumes ONTAP aprovisiona el volumen.
+
+.Después de terminar
+Si ha aprovisionado un recurso compartido CIFS, proporcione permisos a usuarios o grupos a los archivos y carpetas y compruebe que esos usuarios pueden acceder al recurso compartido y crear un archivo.
+
+Si desea aplicar cuotas a volúmenes, debe usar System Manager o la interfaz de línea de comandos. Las cuotas le permiten restringir o realizar un seguimiento del espacio en disco y del número de archivos que usan un usuario, un grupo o un qtree.
+
+
+
+== Aprovisionar volúmenes en el segundo nodo de una configuración de alta disponibilidad
+
+De forma predeterminada, Cloud Manager crea volúmenes en el primer nodo de una configuración de alta disponibilidad. Si necesita una configuración activo-activo, en la que ambos nodos sirven datos a los clientes, debe crear agregados y volúmenes en el segundo nodo.
+
+.Pasos
+. En la página entornos de trabajo, haga doble clic en el nombre del entorno de trabajo de Cloud Volumes ONTAP en el que desea gestionar agregados.
+. Haga clic en el icono de menú y, a continuación, haga clic en *Avanzado > asignación avanzada*.
+. Haga clic en *Agregar agregado* y, a continuación, cree el agregado.
+. Para Home Node, elija el segundo nodo del par de alta disponibilidad.
+. Después de que Cloud Manager cree el agregado, selecciónelo y, a continuación, haga clic en *Crear volumen*.
+. Introduzca los detalles del nuevo volumen y, a continuación, haga clic en *Crear*.
+
+
+.Después de terminar
+Puede crear volúmenes adicionales en este agregado si es necesario.
+
+
+IMPORTANT: En el caso de parejas de alta disponibilidad implementadas en varias zonas de disponibilidad de AWS, debe montar el volumen en clientes mediante la dirección IP flotante del nodo en el que reside el volumen.
+
+
+
+== Creación de agregados
+
+Puede crear agregados usted mismo o dejar que Cloud Manager lo haga por usted cuando cree volúmenes. La ventaja de crear los agregados usted mismo es que puede elegir el tamaño de disco subyacente, lo que le permite configurar el agregado para la capacidad o el rendimiento que necesita.
+
+.Pasos
+. En la página entornos de trabajo, haga doble clic en el nombre de la instancia de Cloud Volumes ONTAP en la que desea gestionar agregados.
+. Haga clic en el icono de menú y, a continuación, haga clic en *Avanzado > asignación avanzada*.
+. Haga clic en *Agregar agregado* y, a continuación, especifique los detalles para el agregado.
++
+Para obtener ayuda con el tipo de disco y el tamaño de disco, consulte link:task_planning_your_config.html["Planificación de la configuración"].
+
+. Haga clic en *Ir* y, a continuación, haga clic en *aprobar y adquirir*.
+
+
+
+
+== Aprovisionar LUN de iSCSI
+
+Si desea crear LUN iSCSI, debe hacerlo desde System Manager.
+
+.Antes de empezar
+* Las utilidades de host deben estar instaladas y configuradas en los hosts que se conectan a la LUN.
+* Debe haber registrado el nombre del iniciador de iSCSI del host. Debe proporcionar este nombre cuando cree un igroup para la LUN.
+* Antes de crear volúmenes en System Manager, debe asegurarse de contar con un agregado con espacio suficiente. Debe crear agregados en Cloud Manager. Para obtener más información, consulte link:task_provisioning_storage.html#creating-aggregates["Creación de agregados"].
+
+
+.Acerca de esta tarea
+Estos pasos describen cómo utilizar System Manager para la versión 9.3 y posteriores.
+
+.Pasos
+. link:task_connecting_to_otc.html["Inicie sesión en System Manager"].
+. Haga clic en *almacenamiento > LUN*.
+. Haga clic en *Crear* y siga las indicaciones para crear la LUN.
+. Conéctese al LUN desde sus hosts.
++
+Para ver instrucciones, consulte http://mysupport.netapp.com/documentation/productlibrary/index.html?productID=61343["Documentación de utilidades de host"^] para su sistema operativo.
+
+

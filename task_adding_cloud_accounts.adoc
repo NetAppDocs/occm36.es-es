@@ -1,0 +1,326 @@
+---
+sidebar: sidebar 
+permalink: task_adding_cloud_accounts.html 
+keywords: permissions, aws, policy, iam, iam role, role, granting, policy, iam policy, iam user, access keys, arn, cloud provider accounts, aws, cloud provider profile, microsoft, azure, permissions, custom role, role, json, active directory, ad, service principal, key, tenant id, application key, application id, operator role, managed identity, iam, operator, role, virtual machine 
+summary: Si desea poner en marcha Cloud Volumes ONTAP en diferentes cuentas de cloud, debe proporcionar los permisos necesarios para esas cuentas y, a continuación, añadir los detalles a Cloud Manager. 
+---
+= Añadiendo cuentas de proveedores de cloud a Cloud Manager
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Si desea poner en marcha Cloud Volumes ONTAP en diferentes cuentas de cloud, debe proporcionar los permisos necesarios para esas cuentas y, a continuación, añadir los detalles a Cloud Manager.
+
+Al implementar Cloud Manager desde Cloud Central, Cloud Manager agrega automáticamente un link:concept_accounts_and_permissions.html["cuenta del proveedor de cloud"] Para la cuenta en la que implementó Cloud Manager. No se añade una cuenta de proveedor de cloud inicial si instaló manualmente el software Cloud Manager en un sistema existente.
+
+
+
+== Configurar y añadir cuentas de AWS en Cloud Manager
+
+Si desea poner en marcha Cloud Volumes ONTAP en diferentes cuentas de AWS, tiene que proporcionar los permisos necesarios para esas cuentas y, a continuación, añadir los detalles a Cloud Manager. La forma en la que proporcione los permisos depende de si desea proporcionar a Cloud Manager claves de AWS o el ARN del rol en una cuenta de confianza.
+
+* <<Concesión de permisos al proporcionar claves AWS>>
+* <<Otorgar permisos asumiendo roles de IAM en otras cuentas>>
+
+
+
+
+=== Concesión de permisos al proporcionar claves AWS
+
+Si desea proporcionar a Cloud Manager claves AWS para un usuario IAM, debe conceder los permisos necesarios a ese usuario. La política de IAM de Cloud Manager define las acciones y los recursos de AWS que se permite el uso de Cloud Manager.
+
+.Pasos
+. Descargue la política de IAM de Cloud Manager desde el https://mysupport.netapp.com/cloudontap/iampolicies["Directivas de Cloud Manager"^].
+. Desde la consola de IAM, cree su propia política copiando y pegando el texto de la política IAM de Cloud Manager.
++
+https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html["Documentación de AWS: Crear políticas de IAM"^]
+
+. Asocie la política a un rol de IAM o a un usuario de IAM.
++
+** https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html["Documentación de AWS: Crear roles de IAM"^]
+** https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html["Documentación de AWS: Adición y eliminación de políticas de IAM"^]
+
+
+
+
+.Resultado
+La cuenta ahora tiene los permisos necesarios. <<Añadiendo cuentas de AWS a Cloud Manager,Ahora puede añadirlo a Cloud Manager>>.
+
+
+
+=== Otorgar permisos asumiendo roles de IAM en otras cuentas
+
+Puede configurar una relación de confianza entre la cuenta de AWS de origen en la que implementó la instancia de Cloud Manager y otras cuentas de AWS mediante los roles de IAM. A continuación, debe proporcionar a Cloud Manager el ARN de las funciones de IAM de las cuentas de confianza.
+
+.Pasos
+. Vaya a la cuenta de destino donde desea implementar Cloud Volumes ONTAP y cree una función IAM seleccionando *otra cuenta de AWS*.
++
+No olvide hacer lo siguiente:
+
++
+** Introduzca el ID de la cuenta en la que reside la instancia de Cloud Manager.
+** Adjunte la política IAM de Cloud Manager, que está disponible en la https://mysupport.netapp.com/cloudontap/iampolicies["Directivas de Cloud Manager"^].
++
+image:screenshot_iam_create_role.gif["Captura de pantalla que muestra la página Crear función en la Consola del IAM de AWS. En Seleccionar tipo de entidad de confianza, se selecciona otra cuenta de AWS."]
+
+
+
+. Vaya a la cuenta de origen donde reside la instancia de Cloud Manager y seleccione la función IAM que se adjunta a la instancia.
++
+.. Haga clic en *Relaciones de confianza > Editar relación de confianza*.
+.. Agregue la acción "sts:AssumeRole" y el ARN de la función que creó en la cuenta de destino.
++
+*ejemplo*
+
++
+[source, json]
+----
+{
+ "Version": "2012-10-17",
+ "Statement": {
+   "Effect": "Allow",
+   "Action": "sts:AssumeRole",
+   "Resource": "arn:aws:iam::ACCOUNT-B-ID:role/ACCOUNT-B-ROLENAME"
+}
+}
+----
+
+
+
+
+.Resultado
+La cuenta ahora tiene los permisos necesarios. <<Añadiendo cuentas de AWS a Cloud Manager,Ahora puede añadirlo a Cloud Manager>>.
+
+
+
+=== Añadiendo cuentas de AWS a Cloud Manager
+
+Después de proporcionar una cuenta de AWS con los permisos necesarios, puede añadir la cuenta a Cloud Manager. Esto le permite iniciar sistemas de Cloud Volumes ONTAP en esa cuenta.
+
+.Pasos
+. En la parte superior derecha de la consola de Cloud Manager, haga clic en la lista desplegable de tareas y, a continuación, seleccione *Configuración de cuenta*.
+. Haga clic en *Agregar nueva cuenta* y seleccione *AWS*.
+. Elija si desea proporcionar las claves AWS o el ARN de un rol de IAM de confianza.
+. Confirme que se han cumplido los requisitos de la directiva y, a continuación, haga clic en *Crear cuenta*.
+
+
+.Resultado
+Ahora puede cambiar a otra cuenta desde la página Details y Credentials al crear un nuevo entorno de trabajo:
+
+image:screenshot_accounts_switch_aws.gif["Captura de pantalla que muestra cómo seleccionar entre cuentas de proveedores de cloud tras hacer clic en Switch Account en la página Details  Credentials."]
+
+
+
+== Configurar y añadir cuentas de Azure a Cloud Manager
+
+Si desea poner en marcha Cloud Volumes ONTAP en diferentes cuentas de Azure, tendrá que proporcionar los permisos necesarios para esas cuentas y, a continuación, añadir detalles acerca de las cuentas a Cloud Manager.
+
+* <<Concesión de permisos de Azure con un director de servicio>>
+* <<Adición de cuentas de Azure a Cloud Manager>>
+
+
+
+
+=== Concesión de permisos de Azure con un director de servicio
+
+Cloud Manager necesita permisos para realizar acciones en Azure. Puede conceder los permisos requeridos a una cuenta de Azure creando y configurando un servicio principal en Azure Active Directory y obteniendo las credenciales de Azure que necesita Cloud Manager.
+
+.Acerca de esta tarea
+La siguiente imagen muestra cómo Cloud Manager obtiene permisos para realizar operaciones en Azure. Un objeto principal de servicio, que está vinculado a una o varias suscripciones de Azure, representa Cloud Manager en Azure Active Directory y se asigna a una función personalizada que permite los permisos necesarios.
+
+image:diagram_azure_authentication.png["Imagen conceptual que muestra cómo Cloud Manager obtiene autenticación y autorización de Azure Active Directory antes de realizar una llamada a la API. En Active Directory, el rol de operador de Cloud Manager define los permisos. Está vinculado a una o más suscripciones de Azure y a un objeto principal de servicio que representa la aplicación Cloud Manager"]
+
+
+NOTE: Los siguientes pasos utilizan el nuevo portal de Azure. Si tiene algún problema, debería utilizar el portal clásico de Azure.
+
+.Pasos
+. <<Crear un rol personalizado con los permisos de Cloud Manager necesarios,Cree un rol personalizado con los permisos de Cloud Manager necesarios>>.
+. <<Creación de una entidad de servicio de Active Directory,Cree un principal de servicio de Active Directory>>.
+. <<Asignación del rol de operador de Cloud Manager al director de servicio,Asigne el rol de operador personalizado de Cloud Manager al principal de servicio>>.
+
+
+
+
+==== Crear un rol personalizado con los permisos de Cloud Manager necesarios
+
+Se requiere un rol personalizado para proporcionar a Cloud Manager los permisos que necesita para iniciar y gestionar Cloud Volumes ONTAP en Azure.
+
+.Pasos
+. Descargue el https://mysupport.netapp.com/cloudontap/iampolicies["Política de Azure de Cloud Manager"^].
+. Modifique el archivo JSON agregando ID de suscripción de Azure al ámbito asignable.
++
+Debe añadir el ID para cada suscripción de Azure desde la cual los usuarios crearán sistemas Cloud Volumes ONTAP.
+
++
+*ejemplo*
+
++
+[source, json]
+----
+"AssignableScopes": [
+"/subscriptions/d333af45-0d07-4154-943d-c25fbzzzzzzz",
+"/subscriptions/54b91999-b3e6-4599-908e-416e0zzzzzzz",
+"/subscriptions/398e471c-3b42-4ae7-9b59-ce5bbzzzzzzz"
+----
+. Use el archivo JSON para crear una función personalizada en Azure.
++
+El ejemplo siguiente muestra cómo crear una función personalizada con la CLI de Azure 2.0:
+
++
+*Az role definition create --role-definition C:\Policy_for_cloud_Manager_Azure_3.6.1.json*
+
+
+
+.Resultado
+Ahora debe tener un rol personalizado llamado operador de Cloud Manager de OnCommand.
+
+
+
+==== Creación de una entidad de servicio de Active Directory
+
+Debe crear un director de servicio de Active Directory para que Cloud Manager se pueda autenticar con Azure Active Directory.
+
+.Antes de empezar
+Debe tener los permisos adecuados en Azure para crear una aplicación de Active Directory y asignar la aplicación a un rol. Para obtener más información, consulte https://azure.microsoft.com/en-us/documentation/articles/resource-group-create-service-principal-portal/["Documentación de Microsoft Azure: Utilice el portal para crear una aplicación de Active Directory y una entidad de servicio con acceso a los recursos"^].
+
+.Pasos
+. Desde el portal de Azure, abra el servicio *Azure Active Directory*.
++
+image:screenshot_azure_ad.gif["Muestra el servicio de Active Directory en Microsoft Azure."]
+
+. En el menú, haga clic en *registros de aplicaciones (Legacy)*.
+. Crear el principal de servicio:
++
+.. Haga clic en *Nuevo registro de aplicación*.
+.. Introduzca un nombre para la aplicación, mantenga seleccionada *aplicación web / API* y, a continuación, introduzca cualquier URL, por ejemplo, http://url[]
+.. Haga clic en *Crear*.
+
+
+. Modifique la aplicación para agregar los permisos necesarios:
++
+.. Seleccione la aplicación creada.
+.. En Configuración, haga clic en *permisos necesarios* y, a continuación, haga clic en *Agregar*.
++
+image:screenshot_azure_ad_permissions.gif["Muestra la configuración de una aplicación de Active Directory en Microsoft Azure y destaca la opción de añadir los permisos necesarios para el acceso a API."]
+
+.. Haga clic en *Seleccionar una API*, seleccione *Windows Azure Service Management API* y, a continuación, haga clic en *Seleccionar*.
++
+image:screenshot_azure_ad_api.gif["Muestra la API para seleccionar en Microsoft Azure al añadir acceso de API a la aplicación Active Directory. La API es la API de gestión de servicios de Windows Azure."]
+
+.. Haga clic en *Access Azure Service Management as organization users*, haga clic en *Select* y, a continuación, haga clic en *Done*.
+
+
+. Cree una clave para el principal de servicio:
++
+.. En Configuración, haga clic en *teclas*.
+.. Introduzca una descripción, seleccione una duración y, a continuación, haga clic en *Guardar*.
+.. Copie el valor clave.
++
+Necesita introducir el valor de clave al añadir una cuenta de proveedor de cloud a Cloud Manager.
+
+.. Haga clic en *Propiedades* y, a continuación, copie el ID de la aplicación para el principal de servicio.
++
+Al igual que el valor de la clave, debe introducir el ID de aplicación en Cloud Manager cuando añada una cuenta de proveedor de cloud a Cloud Manager.
+
++
+image:screenshot_azure_ad_app_id.gif["Muestra el ID de aplicación para un principal de servicio de Azure Active Directory."]
+
+
+
+. Obtenga el ID de inquilino de Active Directory para su organización:
++
+.. En el menú Active Directory, haga clic en *Propiedades*.
+.. Copie el ID del directorio.
++
+image:screenshot_azure_ad_id.gif["Muestra las propiedades de Active Directory en el portal de Azure y el ID de directorio que necesita copiar."]
+
++
+Al igual que el ID de aplicación y la clave de aplicación, debe introducir el ID de inquilino de Active Directory al agregar una cuenta de proveedor de cloud a Cloud Manager.
+
+
+
+
+
+.Resultado
+Ahora debería tener un principal de servicio de Active Directory y debería haber copiado el ID de aplicación, la clave de aplicación y el ID de inquilino de Active Directory. Debe introducir esta información en Cloud Manager cuando añada una cuenta de proveedor de cloud.
+
+
+
+==== Asignación del rol de operador de Cloud Manager al director de servicio
+
+Debe enlazar el principal del servicio a una o más suscripciones de Azure y asignarle el rol de operador de Cloud Manager para que Cloud Manager tenga permisos en Azure.
+
+.Acerca de esta tarea
+Si desea implementar Cloud Volumes ONTAP desde varias suscripciones a Azure, debe enlazar el principal del servicio con cada una de ellas. Cloud Manager le permite seleccionar la suscripción que desea utilizar al poner en marcha Cloud Volumes ONTAP.
+
+.Pasos
+. En el portal de Azure, seleccione *Suscripciones* en el panel izquierdo.
+. Seleccione la suscripción.
+. Haga clic en *Control de acceso (IAM)* y a continuación, haga clic en *Agregar*.
+. Seleccione el rol *operador de Cloud Manager de OnCommand*.
+. Busque el nombre de la aplicación (no puede encontrarlo en la lista desplazándose).
+. Seleccione la aplicación, haga clic en *Seleccionar* y, a continuación, haga clic en *Aceptar*.
+
+
+.Resultado
+El principal de servicio para Cloud Manager ahora tiene los permisos de Azure necesarios.
+
+
+
+=== Adición de cuentas de Azure a Cloud Manager
+
+Después de proporcionar una cuenta de Azure con los permisos necesarios, puede añadir la cuenta a Cloud Manager. Esto le permite iniciar sistemas de Cloud Volumes ONTAP en esa cuenta.
+
+.Pasos
+. En la parte superior derecha de la consola de Cloud Manager, haga clic en la lista desplegable de tareas y, a continuación, seleccione *Configuración de cuenta*.
+. Haga clic en *Agregar nueva cuenta* y seleccione *Microsoft Azure*.
+. Introduzca la información acerca del director del servicio de Azure Active Directory que otorga los permisos necesarios.
+. Confirme que se han cumplido los requisitos de la directiva y, a continuación, haga clic en *Crear cuenta*.
+
+
+.Resultado
+Ahora puede cambiar a otra cuenta desde la página Details y Credentials al crear un nuevo entorno de trabajo:
+
+image:screenshot_accounts_switch_azure.gif["Captura de pantalla que muestra cómo seleccionar entre cuentas de proveedores de cloud tras hacer clic en Switch Account en la página Details  Credentials."]
+
+
+
+== Asociar suscripciones de Azure adicionales a una identidad administrada
+
+Cloud Manager le permite elegir la cuenta y la suscripción de Azure en la que desee poner en marcha Cloud Volumes ONTAP. No puede seleccionar una suscripción de Azure diferente para la gestionada perfil de identidad a menos que asocie el https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview["identidad administrada"^] con estas suscripciones.
+
+.Acerca de esta tarea
+Una identidad administrada es la inicial link:concept_accounts_and_permissions.html["cuenta del proveedor de cloud"] Cuando pone en marcha Cloud Manager desde NetApp Cloud Central. Cuando implementó Cloud Manager, Cloud Central creó la función del operador de Cloud Manager de OnCommand y la asignó a la máquina virtual de Cloud Manager.
+
+.Pasos
+. Inicie sesión en el portal de Azure.
+. Abra el servicio *Suscripciones* y seleccione la suscripción en la que desea implementar sistemas Cloud Volumes ONTAP.
+. Haga clic en *Control de acceso (IAM)*.
++
+.. Haga clic en *Agregar* > *Agregar asignación de rol* y, a continuación, agregue los permisos:
++
+*** Seleccione el rol *operador de Cloud Manager de OnCommand*.
++
+
+NOTE: El nombre predeterminado que se proporciona en la es el operador de OnCommand Cloud Manager https://mysupport.netapp.com/info/web/ECMP11022837.html["Política de Cloud Manager"]. Si seleccionó otro nombre para el rol, seleccione ese nombre.
+
+*** Asigne acceso a una *máquina virtual*.
+*** Seleccione la suscripción en la que se creó la máquina virtual de Cloud Manager.
+*** Seleccione la máquina virtual Cloud Manager.
+*** Haga clic en *Guardar*.
+
+
+
+
+. Repita estos pasos para suscripciones adicionales.
+
+
+.Resultado
+Al crear un nuevo entorno de trabajo, ahora debe tener la posibilidad de seleccionar varias suscripciones de Azure para el perfil de identidad administrada.
+
+image:screenshot_accounts_switch_azure_subscription.gif["Captura de pantalla que muestra la capacidad de seleccionar varias suscripciones a Azure al seleccionar una cuenta de proveedor de Microsoft Azure."]

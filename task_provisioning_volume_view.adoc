@@ -1,0 +1,125 @@
+---
+sidebar: sidebar 
+permalink: task_provisioning_volume_view.html 
+keywords: NFS volumes, volume view, creating, mounting, provisioning, create, nfs volumes 
+summary: Puede usar Cloud Manager para crear volúmenes de NFS que proporcionan funciones para la gran empresa en almacenamiento de AWS. 
+---
+= Crear y montar volúmenes de NFS
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Puede usar Cloud Manager para crear volúmenes de NFS que proporcionan funciones para la gran empresa en almacenamiento de AWS.
+
+
+
+== Creación de volúmenes NFS
+
+Es posible crear un volumen asociado a una única instancia de AWS o a una instancia que se refleja en otra instancia para proporcionar alta disponibilidad.
+
+.Pasos
+. En la ficha volúmenes, haga clic en *Crear nuevo volumen*.
+. En la página Create New Volume, seleccione un tipo de volumen:
++
+[cols="15,85"]
+|===
+| Opción | Descripción 
+
+
+| Cree el volumen | Crea un volumen asociado a una única instancia de AWS. 
+
+
+| Cree un volumen de alta disponibilidad | Crea un volumen vinculado a una única instancia de AWS y se refleja en otra instancia para proporcionar alta disponibilidad en caso de que se produzcan fallos. Haga clic en el icono Info para ver detalles adicionales sobre las instancias necesarias para un volumen de alta disponibilidad. 
+|===
+. Si selecciona Crear volumen, especifique los detalles del primer volumen y, a continuación, haga clic en *Crear*.
++
+En la siguiente tabla se describen los campos que podrían presentar dificultades:
+
++
+[cols="15,85"]
+|===
+| Campo | Descripción 
+
+
+| Tamaño | El tamaño máximo del volumen depende de la capacidad disponible en los sistemas de almacenamiento existentes. El thin provisioning se habilita automáticamente en el volumen, lo cual permite crear un volumen mayor que el almacenamiento físico que tiene actualmente disponible. En lugar de asignar previamente espacio de almacenamiento, se asigna espacio a cada volumen a medida que se escriben datos. 
+
+
+| Tipo de disco de AWS  a| 
+Debe elegir el disco que cumpla sus requisitos tanto de rendimiento como de coste.
+
+** Los discos SSD de uso general equilibran el coste y el rendimiento de una amplia gama de cargas de trabajo. El rendimiento se define en términos de IOPS.
+** Los discos de HDD optimizados para el rendimiento se utilizan para cargas de trabajo a las que se accede con frecuencia, que requieren un rendimiento rápido y constante a un precio menor.
+** Dado que el rendimiento es muy bajo, los discos de HDD fríos se utilizan para realizar backups o datos a los que se accede con poca frecuencia. Al igual que los discos HDD optimizados para el rendimiento, el rendimiento se define en términos de rendimiento.
+
+
+Para obtener información detallada, consulte http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html["Documentación de AWS: Tipos de volúmenes de EBS"^].
+
+|===
++
+En la siguiente imagen, se muestra la página Create Volume rellenada:
+
++
+image:screenshot_volume_view_create.gif["Captura de pantalla: Muestra la página Crear nuevo volumen rellenada."]
+
+. Si selecciona Crear volumen ha, especifique los detalles del volumen y, a continuación, haga clic en *Crear*.
++
+En la siguiente tabla se describen los campos que podrían presentar dificultades:
+
++
+[cols="15,85"]
+|===
+| Campo | Descripción 
+
+
+| Tamaño | El tamaño máximo del volumen depende de la capacidad disponible en los sistemas de almacenamiento existentes. El thin provisioning se habilita automáticamente en el volumen, lo cual permite crear un volumen mayor que el almacenamiento físico que tiene actualmente disponible. En lugar de asignar previamente espacio de almacenamiento, se asigna espacio a cada volumen a medida que se escriben datos. 
+
+
+| Tipo de disco de AWS  a| 
+Debe elegir el disco que cumpla sus requisitos tanto de rendimiento como de coste.
+
+** Los discos SSD de uso general equilibran el coste y el rendimiento de una amplia gama de cargas de trabajo. El rendimiento se define en términos de IOPS.
+** Los discos HDD optimizados para optimizar el rendimiento se utilizan para cargas de trabajo de acceso frecuente que requieren un rendimiento rápido y constante.
+
+
+Para obtener información detallada, consulte http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html["Documentación de AWS: Tipos de volúmenes de EBS"^].
+
+
+
+| Ubicación | Debe elegir un VPC que incluya tres subredes en tres zonas de disponibilidad independientes. 
+
+
+| Nodos y Mediador | Si es posible, Cloud Manager elige zonas de disponibilidad independientes para cada instancia porque es la configuración compatible y óptima. 
+
+
+| IP flotante | Las direcciones IP deben estar fuera del bloque CIDR para todas las VPC de la región. 
+
+
+| Tabla de rutas | Si tiene más de una tabla de rutas, es muy importante seleccionar las tablas de rutas correctas. De lo contrario, es posible que algunos clientes no tengan acceso al par de alta disponibilidad. Para obtener información detallada, consulte  http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html["Documentación de AWS: Tablas de rutas"^]. 
+|===
++
+La siguiente imagen muestra la página Nodes y Mediator. Cada instancia se encuentra en una zona de disponibilidad independiente.
+
++
+image:screenshot_volume_view_ha_network.gif["Captura de pantalla: Muestra las selecciones de redes de AWS para los dos nodos Cloud Volumes ONTAP y el mediador. Cada instancia se encuentra en una zona de disponibilidad y una subred independientes."]
+
+
+
+.Resultado
+Cloud Manager crea el volumen en un sistema existente o en un sistema nuevo. Si se necesita un sistema nuevo, la creación del volumen puede tardar aproximadamente 25 minutos.
+
+
+
+== Montaje de volúmenes en hosts Linux
+
+Después de crear un volumen, debe montarlo en los hosts para que puedan acceder al volumen.
+
+.Pasos
+. En la ficha volúmenes, coloque el cursor del ratón sobre el volumen, seleccione el icono de menú y, a continuación, haga clic en *montar*.
+. Haga clic en *Copiar*.
+. En los hosts Linux, modifique el texto copiado cambiando el directorio de destino y, a continuación, escriba el comando para montar el volumen.
+
