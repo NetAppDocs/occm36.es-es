@@ -14,10 +14,10 @@ summary: Puede iniciar sesión en Cloud Manager desde cualquier explorador web q
 
 
 [role="lead"]
-Puede iniciar sesión en Cloud Manager desde cualquier explorador web que tenga conexión con el sistema Cloud Manager. Debe iniciar sesión mediante un https://cloud.netapp.com["Cloud Central de NetApp"^] cuenta de usuario.
+Puede iniciar sesión en Cloud Manager desde cualquier explorador web que tenga conexión con el sistema Cloud Manager. Debe iniciar sesión mediante un https://["Cloud Central de NetApp"^] cuenta de usuario.
 
 .Pasos
-. Abra un explorador web e inicie sesión en https://cloud.netapp.com["Cloud Central de NetApp"^].
+. Abra un explorador web e inicie sesión en https://["Cloud Central de NetApp"^].
 . Haga clic en *vaya a Servicios de datos en la nube* y seleccione *Cloud Volumes ONTAP*.
 . Haga clic en *vaya a Cloud Manager* para el sistema Cloud Manager al que desea acceder.
 +

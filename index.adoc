@@ -19,7 +19,7 @@ Cloud Manager de OnCommand le permite poner en marcha y gestionar Cloud Volumes 
 == Descubra las novedades
 
 * link:reference_new_occm.html["Novedades en Cloud Manager"]
-* https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_new_95.html["Novedades en Cloud Volumes ONTAP"^]
+* https://["Novedades en Cloud Volumes ONTAP"^]
 
 
 
@@ -28,7 +28,7 @@ Cloud Manager de OnCommand le permite poner en marcha y gestionar Cloud Volumes 
 
 * link:task_getting_started_aws.html["Empiece a usar AWS"]
 * link:task_getting_started_azure.html["Empiece a usar Azure"]
-* https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_supported_configs_95.html["Busque las configuraciones compatibles para Cloud Volumes ONTAP"^]
+* https://["Busque las configuraciones compatibles para Cloud Volumes ONTAP"^]
 * link:reference_networking_cloud_manager.html["Revise los requisitos detallados de redes de Cloud Manager"]
 * link:reference_networking_aws.html["Consulte los requisitos detallados de redes para Cloud Volumes ONTAP para AWS"]
 * link:reference_networking_azure.html["Consulte los requisitos detallados de redes de Cloud Volumes ONTAP para Azure"]
@@ -47,7 +47,7 @@ Cloud Manager de OnCommand le permite poner en marcha y gestionar Cloud Volumes 
 
 == Conéctese con colegas, obtenga ayuda y obtenga más información
 
-* https://community.netapp.com/t5/Cloud-Data-Services/ct-p/CDS["Comunidad de NetApp: Servicios de datos en el cloud"^]
-* https://mysupport.netapp.com/cloudontap["Soporte Cloud Volumes ONTAP de NetApp"^]
+* https://["Comunidad de NetApp: Servicios de datos en el cloud"^]
+* https://["Soporte Cloud Volumes ONTAP de NetApp"^]
 * link:reference_additional_info.html["Dónde encontrar ayuda y más información"]
 

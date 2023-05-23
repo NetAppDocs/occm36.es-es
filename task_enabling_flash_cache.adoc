@@ -29,6 +29,6 @@ NOTE: Cloud Volumes ONTAP no admite el recalentamiento de la caché después de 
 
 . Deshabilite la compresión en todos los volúmenes.
 +
-La compresión debe deshabilitarse en todos los volúmenes para aprovechar las mejoras de rendimiento de Flash Cache. No puede seleccionar eficiencia de almacenamiento al crear un volumen desde Cloud Manager o puede crear un volumen y, a continuación, hacerlo http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-vsmg/GUID-8508A4CB-DB43-4D0D-97EB-859F58B29054.html["Deshabilite la compresión de datos mediante la CLI"^].
+La compresión debe deshabilitarse en todos los volúmenes para aprovechar las mejoras de rendimiento de Flash Cache. No puede seleccionar eficiencia de almacenamiento al crear un volumen desde Cloud Manager o puede crear un volumen y, a continuación, hacerlo http://["Deshabilite la compresión de datos mediante la CLI"^].
 
 

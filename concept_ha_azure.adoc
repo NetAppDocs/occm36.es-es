@@ -59,7 +59,7 @@ En el caso de configuraciones NAS, las direcciones IP de datos migran automátic
 Para iSCSI, Cloud Volumes ONTAP utiliza I/o multivía (MPIO) y ALUA (Asymmetric Logical Unit Access) para gestionar la conmutación por error de ruta entre las rutas activas y no optimizadas.
 
 
-NOTE: Para obtener información sobre qué configuraciones de host específicas admiten ALUA, consulte http://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp"^] Y la guía de instalación y configuración de las utilidades de host para el sistema operativo host.
+NOTE: Para obtener información sobre qué configuraciones de host específicas admiten ALUA, consulte http://["Herramienta de matriz de interoperabilidad de NetApp"^] Y la guía de instalación y configuración de las utilidades de host para el sistema operativo host.
 
 
 
@@ -78,7 +78,7 @@ Las siguientes limitaciones afectan a las parejas de alta disponibilidad de Clou
 * NFSv4 no es compatible. NFSv3 es compatible.
 * En algunas regiones no se admiten pares DE HA.
 +
-https://cloud.netapp.com/cloud-volumes-global-regions["Consulte la lista de regiones de Azure admitidas"^].
+https://["Consulte la lista de regiones de Azure admitidas"^].
 
 
 

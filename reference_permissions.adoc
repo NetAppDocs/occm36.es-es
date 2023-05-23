@@ -14,7 +14,7 @@ summary: Cloud Manager requiere permisos para realizar acciones en AWS y Azure e
 
 
 [role="lead"]
-Cloud Manager requiere permisos para realizar acciones en AWS y Azure en su nombre. Estos permisos se incluyen en https://mysupport.netapp.com/info/web/ECMP11022837.html["Las políticas proporcionadas por NetApp"^]. Tal vez desee entender qué hace Cloud Manager con estos permisos.
+Cloud Manager requiere permisos para realizar acciones en AWS y Azure en su nombre. Estos permisos se incluyen en https://["Las políticas proporcionadas por NetApp"^]. Tal vez desee entender qué hace Cloud Manager con estos permisos.
 
 
 

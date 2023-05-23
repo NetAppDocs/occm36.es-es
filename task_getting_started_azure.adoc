@@ -35,7 +35,7 @@ Este paso es importante porque Cloud Manager no puede implementar Cloud Volumes 
 Al poner en marcha Cloud Manager desde NetApp Cloud Central, necesita utilizar una cuenta de Azure con permisos para implementar la máquina virtual de Cloud Manager.
 
 [role="quick-margin-list"]
-. Descargue el https://mysupport.netapp.com/cloudontap/iampolicies["Política Cloud Central de NetApp para Azure"^].
+. Descargue el https://["Política Cloud Central de NetApp para Azure"^].
 . Modifique el archivo JSON añadiendo el ID de suscripción de Azure al campo "AssignableScopes".
 . Utilice el archivo JSON para crear una función personalizada en Azure denominada _Azure SetupAsService_.
 +
@@ -49,7 +49,7 @@ Ejemplo: *Az role definition create --role-definition C:\Policy_for_Setup_as_Ser
 === image:number3.png["Número 3"] Inicie Cloud Manager desde NetApp Cloud Central
 
 [role="quick-margin-para"]
-Se necesita software Cloud Manager para poner en marcha y gestionar Cloud Volumes ONTAP. Se tarda unos pocos minutos en iniciar una instancia de Cloud Manager desde https://cloud.netapp.com["Cloud Central"^].
+Se necesita software Cloud Manager para poner en marcha y gestionar Cloud Volumes ONTAP. Se tarda unos pocos minutos en iniciar una instancia de Cloud Manager desde https://["Cloud Central"^].
 
 
 

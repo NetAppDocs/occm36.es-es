@@ -48,11 +48,11 @@ En líneas generales, las diferencias entre los tipos de discos EBS son las sigu
 
 NOTE: Los discos HDD de datos fríos no son compatibles con configuraciones de alta disponibilidad ni con niveles de datos.
 
-Si quiere más información sobre los casos de uso de estos discos, consulte http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html["Documentación de AWS: Tipos de volúmenes de EBS"^].
+Si quiere más información sobre los casos de uso de estos discos, consulte http://["Documentación de AWS: Tipos de volúmenes de EBS"^].
 
 link:task_planning_your_config.html#sizing-your-system-in-aws["Aprenda a elegir tipos de disco y tamaños de disco para Sus sistemas en AWS"].
 
-https://docs.netapp.com/cloud-volumes-ontap/us-en/reference_storage_limits_95.html["Revise los límites de almacenamiento para Cloud Volumes ONTAP"].
+https://["Revise los límites de almacenamiento para Cloud Volumes ONTAP"].
 
 
 
@@ -78,8 +78,8 @@ Puede emparejar un disco gestionado con el almacenamiento de Azure Blob para lin
 Parejas de HA:: Los pares de ALTA DISPONIBILIDAD usan los blobs de página Premium, que tienen un tamaño de disco máximo de 8 TB.
 
 
-Si quiere más información sobre los casos de uso de estos discos, consulte https://azure.microsoft.com/documentation/articles/storage-introduction/["Documentación de Microsoft Azure: Introducción a Microsoft Azure Storage"^].
+Si quiere más información sobre los casos de uso de estos discos, consulte https://["Documentación de Microsoft Azure: Introducción a Microsoft Azure Storage"^].
 
 link:task_planning_your_config.html#sizing-your-system-in-azure["Aprenda a elegir tipos de disco y tamaños de disco para Sus sistemas en Azure"].
 
-https://docs.netapp.com/cloud-volumes-ontap/us-en/reference_storage_limits_95.html["Revise los límites de almacenamiento para Cloud Volumes ONTAP"].
+https://["Revise los límites de almacenamiento para Cloud Volumes ONTAP"].

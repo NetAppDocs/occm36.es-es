@@ -39,7 +39,7 @@ Conexión de Cloud Volumes ONTAP a Azure Blob Storage para organización en nive
 "Microsoft.Network/virtualNetworks/subnets/write",
 "Microsoft.Network/routeTables/join/action",
 ----
-Estos permisos se incluyen en el último https://mysupport.netapp.com/cloudontap/iampolicies["Política de Cloud Manager"].
+Estos permisos se incluyen en el último https://["Política de Cloud Manager"].
 
 Para obtener más información sobre la configuración de la organización en niveles de datos, consulte link:task_tiering.html["Organización en niveles de los datos inactivos en almacenamiento de objetos de bajo coste"].
 
@@ -47,7 +47,7 @@ Para obtener más información sobre la configuración de la organización en ni
 Conexiones a sistemas ONTAP en otras redes:: Para replicar datos entre un sistema Cloud Volumes ONTAP en Azure y sistemas ONTAP en otras redes, debe tener una conexión VPN entre el vnet de Azure y la otra red, por ejemplo, un VPC de AWS o una red de su empresa.
 +
 --
-Para obtener instrucciones, consulte https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal["Documentación de Microsoft Azure: Cree una conexión de sitio a sitio en el portal de Azure"^].
+Para obtener instrucciones, consulte https://["Documentación de Microsoft Azure: Cree una conexión de sitio a sitio en el portal de Azure"^].
 
 --
 
