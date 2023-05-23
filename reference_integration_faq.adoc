@@ -82,8 +82,8 @@ Todas las API son compatibles con versiones anteriores. Deberá actualizar los s
 
 Si su sistema utiliza LDAP, NetApp no puede integrar automáticamente el sistema con Cloud Central. Debe realizar manualmente los siguientes pasos:
 
-. Ponga en marcha un nuevo sistema Cloud Manager desde https://["Cloud Central de NetApp"^].
-. https://["Configure LDAP con el nuevo sistema"^].
+. Ponga en marcha un nuevo sistema Cloud Manager desde https://cloud.netapp.com/["Cloud Central de NetApp"^].
+. https://services.cloud.netapp.com/misc/federation-support["Configure LDAP con el nuevo sistema"^].
 . link:task_adding_ontap_cloud.html["Descubra los sistemas Cloud Volumes ONTAP existentes"] Del nuevo sistema Cloud Manager.
 . Elimine el sistema Cloud Manager antiguo.
 

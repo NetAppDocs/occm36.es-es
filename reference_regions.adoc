@@ -16,4 +16,4 @@ summary: Cloud Manager y Cloud Volumes ONTAP son compatibles con varias regiones
 [role="lead"]
 Cloud Manager y Cloud Volumes ONTAP son compatibles con varias regiones de AWS y regiones de Microsoft Azure.
 
-https://["Haga clic aquí para ver la lista de regiones admitidas"^].
+https://cloud.netapp.com/cloud-volumes-global-regions["Haga clic aquí para ver la lista de regiones admitidas"^].

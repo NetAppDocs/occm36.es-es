@@ -26,7 +26,7 @@ Puede poner en marcha todos los sistemas Cloud Volumes ONTAP en la cuenta inicia
 
 === La cuenta inicial de AWS
 
-Al implementar Cloud Manager desde NetApp Cloud Central, necesita utilizar una cuenta de AWS que tenga permisos para iniciar la instancia de Cloud Manager. Los permisos necesarios se enumeran en la https://["Política central de Cloud de NetApp para AWS"^].
+Al implementar Cloud Manager desde NetApp Cloud Central, necesita utilizar una cuenta de AWS que tenga permisos para iniciar la instancia de Cloud Manager. Los permisos necesarios se enumeran en la https://mysupport.netapp.com/cloudontap/iampolicies["Política central de Cloud de NetApp para AWS"^].
 
 Cuando Cloud Central inicia la instancia de Cloud Manager en AWS, crea un rol IAM y un perfil de instancia para la instancia. También une una política que ofrece permisos para implementar y gestionar Cloud Volumes ONTAP en esa cuenta de AWS. link:reference_permissions.html#what-cloud-manager-does-with-aws-permissions["Revise cómo Cloud Manager utiliza los permisos"].
 
@@ -60,9 +60,9 @@ Puede poner en marcha todos sus sistemas Cloud Volumes ONTAP en la cuenta de Azu
 
 === La cuenta inicial de Azure
 
-Al poner en marcha Cloud Manager desde NetApp Cloud Central, necesita utilizar una cuenta de Azure con permisos para implementar la máquina virtual de Cloud Manager. Los permisos necesarios se enumeran en la https://["Política Cloud Central de NetApp para Azure"^].
+Al poner en marcha Cloud Manager desde NetApp Cloud Central, necesita utilizar una cuenta de Azure con permisos para implementar la máquina virtual de Cloud Manager. Los permisos necesarios se enumeran en la https://mysupport.netapp.com/cloudontap/iampolicies["Política Cloud Central de NetApp para Azure"^].
 
-Cuando Cloud Central pone en marcha la máquina virtual de Cloud Manager en Azure, habilita una https://["identidad administrada asignada por el sistema"^] En la máquina virtual de Cloud Manager, crea un rol personalizado y lo asigna a la máquina virtual. El rol proporciona permisos para implementar y gestionar Cloud Volumes ONTAP en esa suscripción de Azure. link:reference_permissions.html#what-cloud-manager-does-with-azure-permissions["Revise cómo Cloud Manager utiliza los permisos"].
+Cuando Cloud Central pone en marcha la máquina virtual de Cloud Manager en Azure, habilita una https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview["identidad administrada asignada por el sistema"^] En la máquina virtual de Cloud Manager, crea un rol personalizado y lo asigna a la máquina virtual. El rol proporciona permisos para implementar y gestionar Cloud Volumes ONTAP en esa suscripción de Azure. link:reference_permissions.html#what-cloud-manager-does-with-azure-permissions["Revise cómo Cloud Manager utiliza los permisos"].
 
 image:diagram_permissions_initial_azure.png["Imagen conceptual en la que se muestra la implementación de Cloud Manager en una cuenta y una suscripción de Azure Central. Se habilita una identidad administrada asignada por el sistema y se asigna una función personalizada a la máquina virtual de Cloud Manager."]
 

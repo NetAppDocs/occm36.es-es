@@ -20,7 +20,7 @@ summary: Para modificar las cuentas de usuario en Cloud Manager, se puede habili
 Para modificar las cuentas de usuario en Cloud Manager, se puede habilitar y deshabilitar el informe de notificación.
 
 .Acerca de esta tarea
-La contraseña y la información de usuario deben cambiarse en https://["Cloud Central de NetApp"^].
+La contraseña y la información de usuario deben cambiarse en https://cloud.netapp.com["Cloud Central de NetApp"^].
 
 .Pasos
 . En la esquina superior derecha de la consola de Cloud Manager, haga clic en el icono de usuario y, a continuación, seleccione *Ver usuarios*.

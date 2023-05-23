@@ -84,7 +84,7 @@ La comunicación de datos entre VPC no es un problema, ya que iSCSI no utiliza d
 Para iSCSI, Cloud Volumes ONTAP utiliza I/o multivía (MPIO) y ALUA (Asymmetric Logical Unit Access) para gestionar la conmutación por error de ruta entre las rutas activas y no optimizadas.
 
 
-NOTE: Para obtener información sobre qué configuraciones de host específicas admiten ALUA, consulte http://["Herramienta de matriz de interoperabilidad de NetApp"^] Y la guía de instalación y configuración de las utilidades de host para el sistema operativo host.
+NOTE: Para obtener información sobre qué configuraciones de host específicas admiten ALUA, consulte http://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp"^] Y la guía de instalación y configuración de las utilidades de host para el sistema operativo host.
 
 
 
@@ -107,7 +107,7 @@ Puede identificar fácilmente la dirección IP correcta desde Cloud Manager sele
 La implementación de una configuración de alta disponibilidad en una única zona de disponibilidad (AZ) puede garantizar una alta disponibilidad de los datos en caso de que falle una instancia que ejecute un nodo de Cloud Volumes ONTAP. Fuera del VPC, se puede acceder a todos los datos de forma nativa.
 
 
-NOTE: Cloud Manager crea un https://["Grupo de colocación extendido de AWS"^] E inicia los dos nodos de alta disponibilidad en ese grupo de colocación. El grupo de colocación reduce el riesgo de fallos simultáneos al distribuir las instancias entre el hardware subyacente distinto. Esta función mejora la redundancia desde el punto de vista de la informática, no desde la perspectiva del fallo de disco.
+NOTE: Cloud Manager crea un https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html["Grupo de colocación extendido de AWS"^] E inicia los dos nodos de alta disponibilidad en ese grupo de colocación. El grupo de colocación reduce el riesgo de fallos simultáneos al distribuir las instancias entre el hardware subyacente distinto. Esta función mejora la redundancia desde el punto de vista de la informática, no desde la perspectiva del fallo de disco.
 
 
 
@@ -126,7 +126,7 @@ image:diagram_single_az.png["Imagen conceptual que muestra una configuración de
 Para iSCSI, Cloud Volumes ONTAP utiliza I/o multivía (MPIO) y ALUA (Asymmetric Logical Unit Access) para gestionar la conmutación por error de ruta entre las rutas activas y no optimizadas.
 
 
-NOTE: Para obtener información sobre qué configuraciones de host específicas admiten ALUA, consulte http://["Herramienta de matriz de interoperabilidad de NetApp"^] Y la guía de instalación y configuración de las utilidades de host para el sistema operativo host.
+NOTE: Para obtener información sobre qué configuraciones de host específicas admiten ALUA, consulte http://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp"^] Y la guía de instalación y configuración de las utilidades de host para el sistema operativo host.
 
 En el caso de configuraciones NAS, las direcciones IP de datos pueden migrar entre nodos de alta disponibilidad si se produce un fallo. De este modo se garantiza el acceso del cliente al almacenamiento.
 

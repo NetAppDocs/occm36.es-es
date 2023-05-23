@@ -36,7 +36,7 @@ Cloud Manager es compatible con las versiones en inglés de estos sistemas opera
 
 
 --
-Hipervisor:: Un hipervisor de configuración básica o alojado certificado Ejecute CentOS o Red Hat Enterprise Linuxhttps://["Red Hat Solution: ¿Qué hipervisores están certificados para ejecutar Red Hat Enterprise Linux?"^]
+Hipervisor:: Un hipervisor de configuración básica o alojado certificado Ejecute CentOS o Red Hat Enterprise Linuxhttps://access.redhat.com/certified-hypervisors["Red Hat Solution: ¿Qué hipervisores están certificados para ejecutar Red Hat Enterprise Linux?"^]
 CPU:: 2.27 GHz o superior con dos núcleos
 RAM:: 4 GB
 Libere espacio en disco:: 50 GB

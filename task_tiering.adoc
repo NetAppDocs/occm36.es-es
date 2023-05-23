@@ -50,11 +50,11 @@ Puede habilitar la organización en niveles de los datos al utilizar configuraci
 
 == Requisitos para organizar los datos en niveles en AWS
 
-Debe asegurarse de que Cloud Volumes ONTAP tenga una conexión con S3. La mejor forma de proporcionar esa conexión es crear un extremo de VPC con el servicio S3. Para ver instrucciones, consulte https://["Documentación de AWS: Crear un extremo de puerta de enlace"^].
+Debe asegurarse de que Cloud Volumes ONTAP tenga una conexión con S3. La mejor forma de proporcionar esa conexión es crear un extremo de VPC con el servicio S3. Para ver instrucciones, consulte https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpce-gateway.html#create-gateway-endpoint["Documentación de AWS: Crear un extremo de puerta de enlace"^].
 
 Al crear el extremo VPC, asegúrese de seleccionar la región, VPC y tabla de rutas que correspondan a la instancia de Cloud Volumes ONTAP. También debe modificar el grupo de seguridad para añadir una regla de HTTPS de salida que habilite el tráfico hacia el extremo de S3. De lo contrario, Cloud Volumes ONTAP no puede conectarse con el servicio S3.
 
-Si experimenta algún problema, consulte https://["Centro de conocimientos de soporte de AWS: ¿por qué no puedo conectarme a un bloque de S3 mediante un extremo de VPC de puerta de enlace?"^].
+Si experimenta algún problema, consulte https://aws.amazon.com/premiumsupport/knowledge-center/connect-s3-vpc-endpoint/["Centro de conocimientos de soporte de AWS: ¿por qué no puedo conectarme a un bloque de S3 mediante un extremo de VPC de puerta de enlace?"^].
 
 
 
@@ -67,7 +67,7 @@ No es necesario configurar una conexión entre el nivel de rendimiento y el nive
 "Microsoft.Network/virtualNetworks/subnets/write",
 "Microsoft.Network/routeTables/join/action",
 ----
-Estos permisos se incluyen en el último https://["Política de Cloud Manager"].
+Estos permisos se incluyen en el último https://mysupport.netapp.com/cloudontap/iampolicies["Política de Cloud Manager"].
 
 
 

@@ -48,7 +48,7 @@ Puede gestionar los volúmenes existentes a medida que cambien sus necesidades d
 
 Este proceso crea un volumen FlexClone. Un volumen FlexClone es una copia editable, de un momento específico, que gestiona el espacio de forma eficiente, porque utiliza una pequeña cantidad de espacio para los metadatos y, a continuación, solo consume espacio adicional a medida que se modifican o agregan datos.
 
-Para obtener más información sobre los volúmenes FlexClone, consulte http://["Guía de gestión de almacenamiento lógico de ONTAP 9"^].
+Para obtener más información sobre los volúmenes FlexClone, consulte http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-vsmg/home.html["Guía de gestión de almacenamiento lógico de ONTAP 9"^].
 
 
 
@@ -280,7 +280,7 @@ Para obtener más información, consulte link:task_replicating_data.html#managin
 
 . Configure el volumen para el acceso a los datos.
 +
-Para obtener información sobre la configuración de un volumen de destino para el acceso a los datos, consulte http://["Guía exprés de recuperación de desastres de volúmenes de ONTAP 9"^].
+Para obtener información sobre la configuración de un volumen de destino para el acceso a los datos, consulte http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-sm-ic-fr/home.html["Guía exprés de recuperación de desastres de volúmenes de ONTAP 9"^].
 
 . Elimine el volumen original.
 +
@@ -321,6 +321,6 @@ Para obtener más información, consulte link:task_provisioning_storage.html#cre
 . Utilice System Manager o la interfaz de línea de comandos para mover los volúmenes al agregado.
 . En la mayoría de las situaciones, se puede usar System Manager para mover volúmenes.
 +
-Para ver instrucciones, consulte http://["Guía exprés de traslado de volúmenes de ONTAP 9"^].
+Para ver instrucciones, consulte http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-vol-move/home.html["Guía exprés de traslado de volúmenes de ONTAP 9"^].
 
 

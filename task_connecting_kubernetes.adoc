@@ -15,9 +15,9 @@ summary: Cloud Manager puede automatizar la puesta en marcha de Trident de NetAp
 
 
 [role="lead"]
-Cloud Manager puede automatizar la puesta en marcha de https://["Trident de NetApp"^] En los clústeres de Kubernetes, puede usar Cloud Volumes ONTAP como almacenamiento persistente para contenedores. Empezar incluye unos pasos.
+Cloud Manager puede automatizar la puesta en marcha de https://netapp-trident.readthedocs.io/en/stable-v18.10/introduction.html["Trident de NetApp"^] En los clústeres de Kubernetes, puede usar Cloud Volumes ONTAP como almacenamiento persistente para contenedores. Empezar incluye unos pasos.
 
-Si se implementan clústeres de Kubernetes mediante el https://["Servicio Kubernetes de NetApp"^], Cloud Manager puede detectar automáticamente los clústeres desde la cuenta de Cloud Central de NetApp. Si ese es el caso, omita los dos primeros pasos y comience con el paso 3.
+Si se implementan clústeres de Kubernetes mediante el https://cloud.netapp.com/kubernetes-service["Servicio Kubernetes de NetApp"^], Cloud Manager puede detectar automáticamente los clústeres desde la cuenta de Cloud Central de NetApp. Si ese es el caso, omita los dos primeros pasos y comience con el paso 3.
 
 
 
@@ -82,7 +82,7 @@ Cloud Manager configura Trident para que utilice las siguientes opciones de apro
 
 
 [role="quick-margin-para"]
-https://["Más información sobre el aprovisionamiento de su primer volumen con Trident para Kubernetes"^]
+https://netapp-trident.readthedocs.io/["Más información sobre el aprovisionamiento de su primer volumen con Trident para Kubernetes"^]
 
 .¿Cuáles son los volúmenes trident_trident?
 ****

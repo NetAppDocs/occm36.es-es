@@ -50,7 +50,7 @@ Algunos de los campos en esta página son claros y explicativos. En la siguiente
 | Nombre del entorno de trabajo | Cloud Manager utiliza el nombre del entorno de trabajo para asignar un nombre tanto al sistema Cloud Volumes ONTAP como a la instancia de Amazon EC2. También utiliza el nombre como prefijo para el grupo de seguridad predefinido si selecciona esa opción. 
 
 
-| Agregar etiquetas | Las etiquetas de AWS son metadatos para sus recursos de AWS. Cloud Manager agrega las etiquetas a la instancia de Cloud Volumes ONTAP y a cada recurso de AWS asociado con la instancia. Puede agregar hasta cuatro etiquetas desde la interfaz de usuario al crear un entorno de trabajo y, a continuación, puede agregar más después de crear. Tenga en cuenta que la API no le limita a cuatro etiquetas al crear un entorno de trabajo. Para obtener información sobre etiquetas, consulte https://["Documentación de AWS: Etiquetado de los recursos de Amazon EC2"^]. 
+| Agregar etiquetas | Las etiquetas de AWS son metadatos para sus recursos de AWS. Cloud Manager agrega las etiquetas a la instancia de Cloud Volumes ONTAP y a cada recurso de AWS asociado con la instancia. Puede agregar hasta cuatro etiquetas desde la interfaz de usuario al crear un entorno de trabajo y, a continuación, puede agregar más después de crear. Tenga en cuenta que la API no le limita a cuatro etiquetas al crear un entorno de trabajo. Para obtener información sobre etiquetas, consulte https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html["Documentación de AWS: Etiquetado de los recursos de Amazon EC2"^]. 
 
 
 | Credenciales | Estas son las credenciales de la cuenta de administrador del clúster de Cloud Volumes ONTAP. Puede usar estas credenciales para conectarse a Cloud Volumes ONTAP a través de OnCommand System Manager o de su CLI. 
@@ -89,7 +89,7 @@ Si selecciona uno de los paquetes, solo tiene que especificar un volumen y, a co
 
 . En la página IAM Role, debe conservar la opción predeterminada para permitir que Cloud Manager cree el rol que se le ha asignado.
 +
-Si prefiere utilizar su propia política, debe cumplirla http://["Requisitos de políticas para los nodos Cloud Volumes ONTAP"^].
+Si prefiere utilizar su propia política, debe cumplirla http://mysupport.netapp.com/cloudontap/support/iampolicies["Requisitos de políticas para los nodos Cloud Volumes ONTAP"^].
 
 . En la página licencias, cambie la versión de Cloud Volumes ONTAP según sea necesario, seleccione una licencia, un tipo de instancia, el usuario de instancia y, a continuación, haga clic en *continuar*.
 +
@@ -192,7 +192,7 @@ Cloud Manager inicia la instancia de Cloud Volumes ONTAP. Puede realizar un segu
 
 Si tiene algún problema con el inicio de la instancia de Cloud Volumes ONTAP, revise el mensaje de error. También puede seleccionar el entorno de trabajo y hacer clic en Volver a crear entorno.
 
-Para obtener más ayuda, vaya a. https://["Soporte Cloud Volumes ONTAP de NetApp"^].
+Para obtener más ayuda, vaya a. https://mysupport.netapp.com/cloudontap["Soporte Cloud Volumes ONTAP de NetApp"^].
 
 .Después de terminar
 * Si ha aprovisionado un recurso compartido CIFS, proporcione permisos a usuarios o grupos a los archivos y carpetas y compruebe que esos usuarios pueden acceder al recurso compartido y crear un archivo.
@@ -236,7 +236,7 @@ Algunos de los campos en esta página son claros y explicativos. En la siguiente
 | Nombre del entorno de trabajo | Cloud Manager utiliza el nombre del entorno de trabajo para asignar un nombre tanto al sistema Cloud Volumes ONTAP como a la instancia de Amazon EC2. También utiliza el nombre como prefijo para el grupo de seguridad predefinido si selecciona esa opción. 
 
 
-| Agregar etiquetas | Las etiquetas de AWS son metadatos para sus recursos de AWS. Cloud Manager agrega las etiquetas a la instancia de Cloud Volumes ONTAP y a cada recurso de AWS asociado con la instancia. Para obtener información sobre etiquetas, consulte https://["Documentación de AWS: Etiquetado de los recursos de Amazon EC2"^]. 
+| Agregar etiquetas | Las etiquetas de AWS son metadatos para sus recursos de AWS. Cloud Manager agrega las etiquetas a la instancia de Cloud Volumes ONTAP y a cada recurso de AWS asociado con la instancia. Para obtener información sobre etiquetas, consulte https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html["Documentación de AWS: Etiquetado de los recursos de Amazon EC2"^]. 
 
 
 | Credenciales | Estas son las credenciales de la cuenta de administrador del clúster de Cloud Volumes ONTAP. Puede usar estas credenciales para conectarse a Cloud Volumes ONTAP a través de OnCommand System Manager o de su CLI. 
@@ -263,7 +263,7 @@ Las direcciones IP deben estar fuera del bloque CIDR para todas las VPC de la re
 
 . Si selecciona varios AZs, seleccione las tablas de rutas que deben incluir rutas a las direcciones IP flotantes y, a continuación, haga clic en *continuar*.
 +
-Si tiene más de una tabla de rutas, es muy importante seleccionar las tablas de rutas correctas. De lo contrario, es posible que algunos clientes no tengan acceso al par de alta disponibilidad de Cloud Volumes ONTAP. Para obtener más información sobre las tablas de rutas, consulte http://["Documentación de AWS: Tablas de rutas"^].
+Si tiene más de una tabla de rutas, es muy importante seleccionar las tablas de rutas correctas. De lo contrario, es posible que algunos clientes no tengan acceso al par de alta disponibilidad de Cloud Volumes ONTAP. Para obtener más información sobre las tablas de rutas, consulte http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html["Documentación de AWS: Tablas de rutas"^].
 
 . En la página Data Encryption, elija sin cifrado de datos o cifrado gestionado por AWS.
 +
@@ -288,7 +288,7 @@ Si selecciona uno de los paquetes, solo tiene que especificar un volumen y, a co
 
 . En la página IAM Role, debe conservar la opción predeterminada para permitir que Cloud Manager cree los roles que se le han asignado.
 +
-Si prefiere utilizar su propia política, debe cumplirla http://["Requisitos normativos para los nodos Cloud Volumes ONTAP y la alta disponibilidad mediador"^].
+Si prefiere utilizar su propia política, debe cumplirla http://mysupport.netapp.com/cloudontap/support/iampolicies["Requisitos normativos para los nodos Cloud Volumes ONTAP y la alta disponibilidad mediador"^].
 
 . En la página licencias, cambie la versión de Cloud Volumes ONTAP según sea necesario, seleccione una licencia, un tipo de instancia, el usuario de instancia y, a continuación, haga clic en *continuar*.
 +
@@ -388,7 +388,7 @@ Cloud Manager inicia el par de alta disponibilidad de Cloud Volumes ONTAP. Puede
 
 Si tiene algún problema con el inicio de la pareja de alta disponibilidad, revise el mensaje de error. También puede seleccionar el entorno de trabajo y hacer clic en Volver a crear entorno.
 
-Para obtener más ayuda, vaya a. https://["Soporte Cloud Volumes ONTAP de NetApp"^].
+Para obtener más ayuda, vaya a. https://mysupport.netapp.com/cloudontap["Soporte Cloud Volumes ONTAP de NetApp"^].
 
 .Después de terminar
 * Si ha aprovisionado un recurso compartido CIFS, proporcione permisos a usuarios o grupos a los archivos y carpetas y compruebe que esos usuarios pueden acceder al recurso compartido y crear un archivo.

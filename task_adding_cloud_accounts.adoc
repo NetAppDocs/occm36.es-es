@@ -35,15 +35,15 @@ Si desea poner en marcha Cloud Volumes ONTAP en diferentes cuentas de AWS, tiene
 Si desea proporcionar a Cloud Manager claves AWS para un usuario IAM, debe conceder los permisos necesarios a ese usuario. La política de IAM de Cloud Manager define las acciones y los recursos de AWS que se permite el uso de Cloud Manager.
 
 .Pasos
-. Descargue la política de IAM de Cloud Manager desde el https://["Directivas de Cloud Manager"^].
+. Descargue la política de IAM de Cloud Manager desde el https://mysupport.netapp.com/cloudontap/iampolicies["Directivas de Cloud Manager"^].
 . Desde la consola de IAM, cree su propia política copiando y pegando el texto de la política IAM de Cloud Manager.
 +
-https://["Documentación de AWS: Crear políticas de IAM"^]
+https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html["Documentación de AWS: Crear políticas de IAM"^]
 
 . Asocie la política a un rol de IAM o a un usuario de IAM.
 +
-** https://["Documentación de AWS: Crear roles de IAM"^]
-** https://["Documentación de AWS: Adición y eliminación de políticas de IAM"^]
+** https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html["Documentación de AWS: Crear roles de IAM"^]
+** https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html["Documentación de AWS: Adición y eliminación de políticas de IAM"^]
 
 
 
@@ -64,7 +64,7 @@ No olvide hacer lo siguiente:
 
 +
 ** Introduzca el ID de la cuenta en la que reside la instancia de Cloud Manager.
-** Adjunte la política IAM de Cloud Manager, que está disponible en la https://["Directivas de Cloud Manager"^].
+** Adjunte la política IAM de Cloud Manager, que está disponible en la https://mysupport.netapp.com/cloudontap/iampolicies["Directivas de Cloud Manager"^].
 +
 image:screenshot_iam_create_role.gif["Captura de pantalla que muestra la página Crear función en la Consola del IAM de AWS. En Seleccionar tipo de entidad de confianza, se selecciona otra cuenta de AWS."]
 
@@ -151,7 +151,7 @@ NOTE: Los siguientes pasos utilizan el nuevo portal de Azure. Si tiene algún pr
 Se requiere un rol personalizado para proporcionar a Cloud Manager los permisos que necesita para iniciar y gestionar Cloud Volumes ONTAP en Azure.
 
 .Pasos
-. Descargue el https://["Política de Azure de Cloud Manager"^].
+. Descargue el https://mysupport.netapp.com/cloudontap/iampolicies["Política de Azure de Cloud Manager"^].
 . Modifique el archivo JSON agregando ID de suscripción de Azure al ámbito asignable.
 +
 Debe añadir el ID para cada suscripción de Azure desde la cual los usuarios crearán sistemas Cloud Volumes ONTAP.
@@ -186,7 +186,7 @@ Ahora debe tener un rol personalizado llamado operador de Cloud Manager de OnCom
 Debe crear un director de servicio de Active Directory para que Cloud Manager se pueda autenticar con Azure Active Directory.
 
 .Antes de empezar
-Debe tener los permisos adecuados en Azure para crear una aplicación de Active Directory y asignar la aplicación a un rol. Para obtener más información, consulte https://["Documentación de Microsoft Azure: Utilice el portal para crear una aplicación de Active Directory y una entidad de servicio con acceso a los recursos"^].
+Debe tener los permisos adecuados en Azure para crear una aplicación de Active Directory y asignar la aplicación a un rol. Para obtener más información, consulte https://azure.microsoft.com/en-us/documentation/articles/resource-group-create-service-principal-portal/["Documentación de Microsoft Azure: Utilice el portal para crear una aplicación de Active Directory y una entidad de servicio con acceso a los recursos"^].
 
 .Pasos
 . Desde el portal de Azure, abra el servicio *Azure Active Directory*.
@@ -197,7 +197,7 @@ image:screenshot_azure_ad.gif["Muestra el servicio de Active Directory en Micros
 . Crear el principal de servicio:
 +
 .. Haga clic en *Nuevo registro de aplicación*.
-.. Introduzca un nombre para la aplicación, mantenga seleccionada *aplicación web / API* y, a continuación, introduzca cualquier URL, por ejemplo, http://[]
+.. Introduzca un nombre para la aplicación, mantenga seleccionada *aplicación web / API* y, a continuación, introduzca cualquier URL, por ejemplo, http://url[]
 .. Haga clic en *Crear*.
 
 
@@ -292,7 +292,7 @@ image:screenshot_accounts_switch_azure.gif["Captura de pantalla que muestra cóm
 
 == Asociar suscripciones de Azure adicionales a una identidad administrada
 
-Cloud Manager le permite elegir la cuenta y la suscripción de Azure en la que desee poner en marcha Cloud Volumes ONTAP. No puede seleccionar una suscripción de Azure diferente para la gestionada perfil de identidad a menos que asocie el https://["identidad administrada"^] con estas suscripciones.
+Cloud Manager le permite elegir la cuenta y la suscripción de Azure en la que desee poner en marcha Cloud Volumes ONTAP. No puede seleccionar una suscripción de Azure diferente para la gestionada perfil de identidad a menos que asocie el https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview["identidad administrada"^] con estas suscripciones.
 
 .Acerca de esta tarea
 Una identidad administrada es la inicial link:concept_accounts_and_permissions.html["cuenta del proveedor de cloud"] Cuando pone en marcha Cloud Manager desde NetApp Cloud Central. Cuando implementó Cloud Manager, Cloud Central creó la función del operador de Cloud Manager de OnCommand y la asignó a la máquina virtual de Cloud Manager.
@@ -307,7 +307,7 @@ Una identidad administrada es la inicial link:concept_accounts_and_permissions.h
 *** Seleccione el rol *operador de Cloud Manager de OnCommand*.
 +
 
-NOTE: El nombre predeterminado que se proporciona en la es el operador de OnCommand Cloud Manager https://["Política de Cloud Manager"]. Si seleccionó otro nombre para el rol, seleccione ese nombre.
+NOTE: El nombre predeterminado que se proporciona en la es el operador de OnCommand Cloud Manager https://mysupport.netapp.com/info/web/ECMP11022837.html["Política de Cloud Manager"]. Si seleccionó otro nombre para el rol, seleccione ese nombre.
 
 *** Asigne acceso a una *máquina virtual*.
 *** Seleccione la suscripción en la que se creó la máquina virtual de Cloud Manager.

@@ -14,7 +14,7 @@ summary: Puede sincronizar datos de ONTAP Volumes en un bloque de AWS S3 mediant
 
 
 [role="lead"]
-Puede sincronizar datos de ONTAP Volumes en un bloque de AWS S3 mediante la integración de un entorno de trabajo con https://["Cloud Sync de NetApp"^]. A continuación, puede utilizar los datos sincronizados como una copia secundaria o para el procesamiento de datos con servicios de AWS como EMR y Redshift.
+Puede sincronizar datos de ONTAP Volumes en un bloque de AWS S3 mediante la integración de un entorno de trabajo con https://www.netapp.com/us/cloud/data-sync-saas-product-details["Cloud Sync de NetApp"^]. A continuación, puede utilizar los datos sincronizados como una copia secundaria o para el procesamiento de datos con servicios de AWS como EMR y Redshift.
 
 
 

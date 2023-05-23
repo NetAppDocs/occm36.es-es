@@ -32,9 +32,9 @@ Cloud Manager actualiza los costes cuando se actualiza la página. Debería cons
 "ce:GetTags"
 ----
 +
-Estas acciones se incluyen en las últimas novedades https://["Política de Cloud Manager"^]. Los nuevos sistemas implementados desde Cloud Central de NetApp incluyen automáticamente estos permisos.
+Estas acciones se incluyen en las últimas novedades https://mysupport.netapp.com/cloudontap/iampolicies["Política de Cloud Manager"^]. Los nuevos sistemas implementados desde Cloud Central de NetApp incluyen automáticamente estos permisos.
 
-.. https://["Active la etiqueta *WorkingEnvironmentId*"^].
+.. https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/activating-tags.html["Active la etiqueta *WorkingEnvironmentId*"^].
 +
 Para realizar un seguimiento de los costes de AWS, Cloud Manager asigna una etiqueta de asignación de costes a las instancias de Cloud Volumes ONTAP. Después de crear su primer entorno de trabajo, active la etiqueta *WorkingEnvironmentId*. Las etiquetas definidas por el usuario no aparecen en los informes de facturación de AWS hasta que las active en la consola de gestión de costes y facturación.
 

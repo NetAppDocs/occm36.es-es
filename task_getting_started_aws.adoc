@@ -37,7 +37,7 @@ Se requiere un extremo de VPC si desea organizar en niveles los datos inactivos 
 === image:number2.png["Número 2"] Suscríbase a Cloud Volumes ONTAP desde el mercado de AWS
 
 [role="quick-margin-para"]
-Suscribirse de https://["El mercado AWS"^] se requiere para aceptar los términos del software. Sólo debe suscribirse desde el mercado. No es compatible ejecutar Cloud Volumes ONTAP desde cualquier lugar, pero Cloud Manager.
+Suscribirse de https://aws.amazon.com/marketplace/search/results?page=1&searchTerms=netapp+cloud+volumes+ontap["El mercado AWS"^] se requiere para aceptar los términos del software. Sólo debe suscribirse desde el mercado. No es compatible ejecutar Cloud Volumes ONTAP desde cualquier lugar, pero Cloud Manager.
 
 
 
@@ -47,7 +47,7 @@ Suscribirse de https://["El mercado AWS"^] se requiere para aceptar los término
 Al implementar Cloud Manager desde NetApp Cloud Central, tiene que utilizar una cuenta de AWS con permisos para implementar la instancia.
 
 [role="quick-margin-list"]
-. Vaya a la consola AWS IAM y cree una política copiando y pegando el contenido de https://["Política central de Cloud de NetApp para AWS"^].
+. Vaya a la consola AWS IAM y cree una política copiando y pegando el contenido de https://mysupport.netapp.com/cloudontap/iampolicies["Política central de Cloud de NetApp para AWS"^].
 . Adjunte la política al usuario del IAM.
 
 
@@ -56,7 +56,7 @@ Al implementar Cloud Manager desde NetApp Cloud Central, tiene que utilizar una 
 === image:number4.png["Número 4"] Inicie Cloud Manager desde NetApp Cloud Central
 
 [role="quick-margin-para"]
-Se necesita software Cloud Manager para poner en marcha y gestionar Cloud Volumes ONTAP. Se tarda unos pocos minutos en iniciar una instancia de Cloud Manager desde https://["Cloud Central"^].
+Se necesita software Cloud Manager para poner en marcha y gestionar Cloud Volumes ONTAP. Se tarda unos pocos minutos en iniciar una instancia de Cloud Manager desde https://cloud.netapp.com["Cloud Central"^].
 
 
 

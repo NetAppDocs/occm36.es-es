@@ -79,7 +79,7 @@ NOTE: La conmutación por error de LIF está deshabilitada de forma predetermina
 
 
 * Cloud Volumes ONTAP envía backups de configuración a Cloud Manager mediante HTTPS.
-* Cuando inició sesión en Cloud Manager, es posible acceder a los backups desde https://[]
+* Cuando inició sesión en Cloud Manager, es posible acceder a los backups desde https://ipaddress/occm/offboxconfig/[]
 * Cloud Manager establece algunos atributos de volumen de manera diferente a los de otras herramientas de gestión (por ejemplo, System Manager o la CLI).
 +
 En la siguiente tabla, se enumeran los atributos de volúmenes que Cloud Manager establece de manera diferente a los valores predeterminados:

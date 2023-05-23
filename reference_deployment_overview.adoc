@@ -78,7 +78,7 @@ Después de tener Cloud Manager instalado, puede empezar a implementar Cloud Vol
 
 link:task_getting_started_aws.html["Introducción a AWS"] y.. link:task_getting_started_azure.html["Introducción a Azure"] Proporcionar instrucciones para poner en funcionamiento Cloud Volumes ONTAP rápidamente. Si necesita ayuda adicional, consulte lo siguiente:
 
-* https://["Configuraciones compatibles para Cloud Volumes ONTAP 9.5"^]
+* https://docs.netapp.com/us-en/cloud-volumes-ontap/reference_supported_configs_95.html["Configuraciones compatibles para Cloud Volumes ONTAP 9.5"^]
 * link:task_planning_your_config.html["Planificación de la configuración"]
 * link:task_deploying_otc_aws.html["Inicio de Cloud Volumes ONTAP en AWS"]
 * link:task_deploying_otc_azure.html["Inicio de Cloud Volumes ONTAP en Azure"]

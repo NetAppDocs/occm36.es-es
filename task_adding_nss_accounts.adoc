@@ -20,7 +20,7 @@ Vea el siguiente vídeo para descubrir cómo añadir cuentas del sitio de soport
 
 video::V2fLTyztqYQ[youtube,width=848,height=480]
 .Pasos
-. Si aún no dispone de una cuenta en la página de soporte de NetApp, http://["regístrese para uno"^].
+. Si aún no dispone de una cuenta en la página de soporte de NetApp, http://now.netapp.com/newuser/["regístrese para uno"^].
 . En la parte superior derecha de la consola de Cloud Manager, haga clic en la lista desplegable de tareas y, a continuación, seleccione *Configuración de cuenta*.
 . Haga clic en *Agregar nueva cuenta* y seleccione *Sitio de soporte de NetApp*.
 . Escriba un nombre para la cuenta y, a continuación, escriba el nombre de usuario y la contraseña.

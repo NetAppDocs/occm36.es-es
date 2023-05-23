@@ -39,9 +39,9 @@ Si recibe un mensaje que ha fallado al instalar el awscli, puede ignorar el mens
 
 
 . Revisar link:reference_cloud_mgr_reqs.html["Requisitos del host de Cloud Manager"].
-. Descargue el software desde la http://["Sitio de soporte de NetApp"^]Y, a continuación, cópielo en el host Linux.
+. Descargue el software desde la http://mysupport.netapp.com/NOW/cgi-bin/software["Sitio de soporte de NetApp"^]Y, a continuación, cópielo en el host Linux.
 +
-Para obtener ayuda sobre la conexión y copia del archivo en una instancia de EC2 en AWS, consulte http://["Documentación de AWS: Conexión a la instancia de Linux mediante SSH"^].
+Para obtener ayuda sobre la conexión y copia del archivo en una instancia de EC2 en AWS, consulte http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html["Documentación de AWS: Conexión a la instancia de Linux mediante SSH"^].
 
 . Asigne permisos para ejecutar el script.
 +
@@ -81,13 +81,13 @@ Cloud Manager ya está instalado. Al finalizar la instalación, el servicio Clou
 
 . Abra un explorador web e introduzca la siguiente URL:
 +
-https://[]
+https://_ipaddress_:__port__[]
 
 +
 _Ipaddress_ puede ser localhost, una dirección IP privada o una dirección IP pública, dependiendo de la configuración del host de Cloud Manager. Por ejemplo, si Cloud Manager se encuentra en el cloud público sin una dirección IP pública, debe introducir una dirección IP privada desde un host que tenga una conexión con el host de Cloud Manager.
 
 +
-_Port_ es obligatorio si cambia los puertos HTTP (80) o HTTPS (443) predeterminados. Por ejemplo, si el puerto HTTPS se ha cambiado a 8443, debe introducir https://[]
+_Port_ es obligatorio si cambia los puertos HTTP (80) o HTTPS (443) predeterminados. Por ejemplo, si el puerto HTTPS se ha cambiado a 8443, debe introducir https://_ipaddress_:8443[]
 
 . Regístrese en para obtener una cuenta de Cloud Central de NetApp o inicie sesión si ya dispone de una.
 . Al registrarse o iniciar sesión, Cloud Manager agrega automáticamente su cuenta de usuario como administrador para este sistema.

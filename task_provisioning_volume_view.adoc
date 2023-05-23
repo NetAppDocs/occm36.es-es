@@ -57,7 +57,7 @@ Debe elegir el disco que cumpla sus requisitos tanto de rendimiento como de cost
 ** Dado que el rendimiento es muy bajo, los discos de HDD fríos se utilizan para realizar backups o datos a los que se accede con poca frecuencia. Al igual que los discos HDD optimizados para el rendimiento, el rendimiento se define en términos de rendimiento.
 
 
-Para obtener información detallada, consulte http://["Documentación de AWS: Tipos de volúmenes de EBS"^].
+Para obtener información detallada, consulte http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html["Documentación de AWS: Tipos de volúmenes de EBS"^].
 
 |===
 +
@@ -86,7 +86,7 @@ Debe elegir el disco que cumpla sus requisitos tanto de rendimiento como de cost
 ** Los discos HDD optimizados para optimizar el rendimiento se utilizan para cargas de trabajo de acceso frecuente que requieren un rendimiento rápido y constante.
 
 
-Para obtener información detallada, consulte http://["Documentación de AWS: Tipos de volúmenes de EBS"^].
+Para obtener información detallada, consulte http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html["Documentación de AWS: Tipos de volúmenes de EBS"^].
 
 
 
@@ -99,7 +99,7 @@ Para obtener información detallada, consulte http://["Documentación de AWS: Ti
 | IP flotante | Las direcciones IP deben estar fuera del bloque CIDR para todas las VPC de la región. 
 
 
-| Tabla de rutas | Si tiene más de una tabla de rutas, es muy importante seleccionar las tablas de rutas correctas. De lo contrario, es posible que algunos clientes no tengan acceso al par de alta disponibilidad. Para obtener información detallada, consulte  http://["Documentación de AWS: Tablas de rutas"^]. 
+| Tabla de rutas | Si tiene más de una tabla de rutas, es muy importante seleccionar las tablas de rutas correctas. De lo contrario, es posible que algunos clientes no tengan acceso al par de alta disponibilidad. Para obtener información detallada, consulte  http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html["Documentación de AWS: Tablas de rutas"^]. 
 |===
 +
 La siguiente imagen muestra la página Nodes y Mediator. Cada instancia se encuentra en una zona de disponibilidad independiente.

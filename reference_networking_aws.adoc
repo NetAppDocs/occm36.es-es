@@ -42,25 +42,25 @@ Si tiene una instancia NAT, debe definir una regla de grupo de seguridad entrant
 Acceso saliente a Internet para el mediador de alta disponibilidad:: La instancia del mediador de alta disponibilidad debe tener una conexión saliente al servicio EC2 de AWS para que pueda ayudar a recuperarse de la recuperación tras fallos del almacenamiento. Para proporcionar la conexión, puede agregar una dirección IP pública, especificar un servidor proxy o utilizar una opción manual.
 +
 --
-La opción manual puede ser una puerta de enlace NAT o un extremo de la interfaz VPC desde la subred de destino al servicio AWS EC2. Para obtener más detalles sobre los extremos VPC, consulte http://["Documentación de AWS: Extremos de VPC de la interfaz (AWS PrivateLink)"^].
+La opción manual puede ser una puerta de enlace NAT o un extremo de la interfaz VPC desde la subred de destino al servicio AWS EC2. Para obtener más detalles sobre los extremos VPC, consulte http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpce-interface.html["Documentación de AWS: Extremos de VPC de la interfaz (AWS PrivateLink)"^].
 
 --
 Grupos de seguridad:: No necesita crear grupos de seguridad porque Cloud Manager lo hace por usted. Si necesita utilizar el suyo propio, consulte link:reference_security_groups.html["Reglas de grupo de seguridad"].
-Conexión de Cloud Volumes ONTAP a AWS S3 para los datos organización en niveles:: Si desea usar EBS como nivel de rendimiento y AWS S3 como nivel de capacidad, debe asegurarse de que Cloud Volumes ONTAP tenga una conexión con S3. La mejor forma de proporcionar esa conexión es crear un extremo de VPC con el servicio S3. Para ver instrucciones, consulte https://["Documentación de AWS: Crear un extremo de puerta de enlace"^].
+Conexión de Cloud Volumes ONTAP a AWS S3 para los datos organización en niveles:: Si desea usar EBS como nivel de rendimiento y AWS S3 como nivel de capacidad, debe asegurarse de que Cloud Volumes ONTAP tenga una conexión con S3. La mejor forma de proporcionar esa conexión es crear un extremo de VPC con el servicio S3. Para ver instrucciones, consulte https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpce-gateway.html#create-gateway-endpoint["Documentación de AWS: Crear un extremo de puerta de enlace"^].
 +
 --
 Al crear el extremo VPC, asegúrese de seleccionar la región, VPC y tabla de rutas que correspondan a la instancia de Cloud Volumes ONTAP. También debe modificar el grupo de seguridad para añadir una regla de HTTPS de salida que habilite el tráfico hacia el extremo de S3. De lo contrario, Cloud Volumes ONTAP no puede conectarse con el servicio S3.
 
-Si experimenta algún problema, consulte https://["Centro de conocimientos de soporte de AWS: ¿por qué no puedo conectarme a un bloque de S3 mediante un extremo de VPC de puerta de enlace?"^]
+Si experimenta algún problema, consulte https://aws.amazon.com/premiumsupport/knowledge-center/connect-s3-vpc-endpoint/["Centro de conocimientos de soporte de AWS: ¿por qué no puedo conectarme a un bloque de S3 mediante un extremo de VPC de puerta de enlace?"^]
 
 --
-Conexiones a sistemas ONTAP en otras redes:: Para replicar datos entre un sistema Cloud Volumes ONTAP en AWS y sistemas ONTAP en otras redes, debe tener una conexión VPN entre el VPC de AWS y la otra red, por ejemplo, un vnet de Azure o una red corporativa. Para ver instrucciones, consulte https://["Documentación de AWS: Configuración de una conexión VPN de AWS"^].
+Conexiones a sistemas ONTAP en otras redes:: Para replicar datos entre un sistema Cloud Volumes ONTAP en AWS y sistemas ONTAP en otras redes, debe tener una conexión VPN entre el VPC de AWS y la otra red, por ejemplo, un vnet de Azure o una red corporativa. Para ver instrucciones, consulte https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/SetUpVPNConnections.html["Documentación de AWS: Configuración de una conexión VPN de AWS"^].
 DNS y Active Directory para CIFS:: Si desea aprovisionar almacenamiento CIFS, debe configurar DNS y Active Directory en AWS o ampliar la configuración de sus instalaciones a AWS.
 +
 --
 El servidor DNS debe proporcionar servicios de resolución de nombres para el entorno de Active Directory. Puede configurar los conjuntos de opciones DHCP para que utilicen el servidor DNS EC2 predeterminado, que no debe ser el servidor DNS utilizado por el entorno de Active Directory.
 
-Para obtener instrucciones, consulte https://["Documentación de AWS: Implementación de la referencia de inicio rápido de Active Directory Domain Services en AWS Cloud"^].
+Para obtener instrucciones, consulte https://s3.amazonaws.com/quickstart-reference/microsoft/activedirectory/latest/doc/Microsoft_Active_Directory_Quick_Start.pdf["Documentación de AWS: Implementación de la referencia de inicio rápido de Active Directory Domain Services en AWS Cloud"^].
 
 --
 
@@ -102,7 +102,7 @@ Si sólo tiene una tabla de rutas para las subredes en el VPC (la tabla de rutas
 
 Por ejemplo, puede tener dos subredes asociadas a diferentes tablas de rutas. Si selecciona la tabla DE rutas A, pero no la tabla de rutas B, los clientes de la subred asociada a la tabla DE rutas A pueden acceder al par de alta disponibilidad, pero los clientes de la subred asociada a la tabla de rutas B no pueden.
 
-Para obtener más información sobre las tablas de rutas, consulte http://["Documentación de AWS: Tablas de rutas"^].
+Para obtener más información sobre las tablas de rutas, consulte http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html["Documentación de AWS: Tablas de rutas"^].
 
 --
 Conexión a herramientas de gestión de NetApp:: Para utilizar las herramientas de gestión de NetApp con configuraciones de alta disponibilidad que se encuentran en múltiples AZs, tiene dos opciones de conexión:
@@ -142,7 +142,7 @@ Esta configuración de VPC incluye subredes públicas y privadas, una puerta de 
 
 NOTE: En lugar de un dispositivo NAT, puede utilizar un proxy HTTP para proporcionar conectividad a Internet.
 
-Para obtener más información sobre este escenario, consulte http://["Documentación de AWS: Escenario 2: VPC con subredes públicas y privadas (NAT)"^].
+Para obtener más información sobre este escenario, consulte http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario2.html["Documentación de AWS: Escenario 2: VPC con subredes públicas y privadas (NAT)"^].
 
 En el siguiente gráfico se muestra la ejecución de Cloud Manager en una subred pública y sistemas de solo nodos que se ejecutan en una subred privada:
 
@@ -159,7 +159,7 @@ NOTE: También puede utilizar un servidor proxy en esta configuración para perm
 
 Si desea replicar datos entre los sistemas FAS de su centro de datos y los sistemas Cloud Volumes ONTAP de AWS, debe utilizar una conexión VPN para que el enlace sea seguro.
 
-Para obtener más información sobre este escenario, consulte http://["Documentación de AWS: Escenario 4: VPC con solo una subred privada y acceso de VPN gestionado de AWS"^].
+Para obtener más información sobre este escenario, consulte http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario4.html["Documentación de AWS: Escenario 4: VPC con solo una subred privada y acceso de VPN gestionado de AWS"^].
 
 El siguiente gráfico muestra la ejecución de Cloud Manager en su centro de datos y los sistemas de un solo nodo que se ejecutan en una subred privada:
 

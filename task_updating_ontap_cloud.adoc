@@ -77,7 +77,7 @@ Las actualizaciones de pares de alta disponibilidad no son disruptivas. Una actu
 
 La versión de ONTAP a la que se puede actualizar o degradar varía en función de la versión de ONTAP que esté ejecutándose actualmente en el sistema.
 
-Para conocer los requisitos de la versión, consulte http://["Documentación de ONTAP 9: Requisitos de actualización del clúster"^].
+Para conocer los requisitos de la versión, consulte http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-dot-upgrade/GUID-AC0EB781-583F-4C90-A4C4-BC7B14CEFD39.html["Documentación de ONTAP 9: Requisitos de actualización del clúster"^].
 
 
 
@@ -172,7 +172,7 @@ Puede colocar la imagen del software Cloud Volumes ONTAP en un servidor HTTP o F
 
 NOTE: El grupo de seguridad Cloud Volumes ONTAP predefinido permite conexiones HTTP y FTP salientes de forma predeterminada.
 
-. Obtenga la imagen del software de https://["El sitio de soporte de NetApp"^].
+. Obtenga la imagen del software de https://mysupport.netapp.com/products/p/cloud_ontap.html["El sitio de soporte de NetApp"^].
 . Copie la imagen de software en el directorio del servidor HTTP o FTP a partir del que se servirá el archivo.
 . En el entorno de trabajo de Cloud Manager, haga clic en el icono de menú y, a continuación, haga clic en *Avanzado > Actualizar Cloud Volumes ONTAP*.
 . En la página de actualización del software, elija *Seleccione una imagen disponible en una dirección URL*, introduzca la dirección URL y, a continuación, haga clic en *Cambiar imagen*.

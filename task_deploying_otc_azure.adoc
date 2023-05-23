@@ -50,7 +50,7 @@ En la siguiente tabla se describen los campos que podrían presentar dificultade
 | Nombre del grupo de recursos | Si desactiva *Use Default*, puede introducir el nombre de un nuevo grupo de recursos. Si desea utilizar un grupo de recursos existente, debe usar la API. 
 
 
-| Etiquetas | Las etiquetas son metadatos para sus recursos de Azure. Cloud Manager agrega las etiquetas al sistema Cloud Volumes ONTAP y cada recurso de Azure asociado con el sistema. Puede agregar hasta cuatro etiquetas desde la interfaz de usuario al crear un entorno de trabajo y, a continuación, puede agregar más después de crear. Tenga en cuenta que la API no le limita a cuatro etiquetas al crear un entorno de trabajo. Para obtener información sobre etiquetas, consulte https://["Documentación de Microsoft Azure: Uso de etiquetas para organizar los recursos de Azure"^]. 
+| Etiquetas | Las etiquetas son metadatos para sus recursos de Azure. Cloud Manager agrega las etiquetas al sistema Cloud Volumes ONTAP y cada recurso de Azure asociado con el sistema. Puede agregar hasta cuatro etiquetas desde la interfaz de usuario al crear un entorno de trabajo y, a continuación, puede agregar más después de crear. Tenga en cuenta que la API no le limita a cuatro etiquetas al crear un entorno de trabajo. Para obtener información sobre etiquetas, consulte https://azure.microsoft.com/documentation/articles/resource-group-using-tags/["Documentación de Microsoft Azure: Uso de etiquetas para organizar los recursos de Azure"^]. 
 
 
 | Credenciales | Estas son las credenciales de la cuenta de administrador del clúster de Cloud Volumes ONTAP. Puede usar estas credenciales para conectarse a Cloud Volumes ONTAP a través de OnCommand System Manager o de su CLI. 
@@ -177,7 +177,7 @@ Cloud Manager pone en marcha el sistema Cloud Volumes ONTAP. Puede realizar un s
 
 Si tiene algún problema con la implementación del sistema Cloud Volumes ONTAP, revise el mensaje de error. También puede seleccionar el entorno de trabajo y hacer clic en *Volver a crear entorno*.
 
-Para obtener más ayuda, vaya a. https://["Soporte Cloud Volumes ONTAP de NetApp"^].
+Para obtener más ayuda, vaya a. https://mysupport.netapp.com/cloudontap["Soporte Cloud Volumes ONTAP de NetApp"^].
 
 .Después de terminar
 * Si ha aprovisionado un recurso compartido CIFS, proporcione permisos a usuarios o grupos a los archivos y carpetas y compruebe que esos usuarios pueden acceder al recurso compartido y crear un archivo.
