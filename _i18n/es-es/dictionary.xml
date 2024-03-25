@@ -2192,16 +2192,6 @@
   <block id="c58c67877e90861ec92c90c10b7ad7f4" category="paragraph">La siguiente imagen muestra una página de costes de ejemplo:</block>
   <block id="37423695a33e814084966c17d451584a" category="inline-image-macro">Captura de pantalla: Muestra los costes por mes de una instancia de Cloud Volumes ONTAP.</block>
   <block id="c3d678c4df92877db53bd1f6e44ec524" category="paragraph"><block ref="c3d678c4df92877db53bd1f6e44ec524" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="bf247a42035ccb395566620f801451c6" category="summary">La documentación de versiones anteriores de Cloud Manager está disponible por si no está ejecutando la versión más reciente.</block>
-  <block id="07d55193182697e6721a80930a82f737" category="doc">Versiones anteriores de la documentación de Cloud Manager</block>
-  <block id="ecc216112e51b5fcf9a16ded8dabf7d3" category="inline-link">Cloud Manager 3.5</block>
-  <block id="cfc918b9915ac614a17310f450bf2721" category="list-text"><block ref="cfc918b9915ac614a17310f450bf2721" category="inline-link-rx"></block></block>
-  <block id="e3d94d1f3408c8379bdf78d363454ce1" category="inline-link">Cloud Manager 3.4</block>
-  <block id="38de804ea38bf38231c886d96da268e7" category="list-text"><block ref="38de804ea38bf38231c886d96da268e7" category="inline-link-rx"></block></block>
-  <block id="071d13764bfb9458bd760c388f1767ba" category="inline-link">Cloud Manager 3.3</block>
-  <block id="16402a155f06e6eb36ecc0f5c23fe0c3" category="list-text"><block ref="16402a155f06e6eb36ecc0f5c23fe0c3" category="inline-link-rx"></block></block>
-  <block id="5762b1cbe884ee9e94cfac52c83c4e93" category="inline-link">Cloud Manager 3.2</block>
-  <block id="512d31465e67eb0eaa423ce8c234959e" category="list-text"><block ref="512d31465e67eb0eaa423ce8c234959e" category="inline-link-rx"></block></block>
   <block id="8b2d220425693a8c750286d7c11a6c37" category="summary">Debe renovar el certificado HTTPS de Cloud Manager antes de que caduque para garantizar el acceso seguro a la consola web de Cloud Manager. Si no renueva el certificado antes de que caduque, aparece una advertencia cuando los usuarios acceden a la consola Web mediante HTTPS.</block>
   <block id="ae0e87cbbdc9423ecb49df1c2fa18535" category="doc">Renovando el certificado HTTPS de Cloud Manager</block>
   <block id="34c3e6daa49b19ad2ce642ad4877b46e" category="paragraph">Se muestran detalles sobre el certificado de Cloud Manager, incluida la fecha de vencimiento.</block>
@@ -3202,5 +3192,8 @@
   <block id="f90e6605f3b61632417dd0fa03f7a25f" category="sidebar">Preguntas más frecuentes sobre la integración de Cloud Central</block>
   <block id="75396e001838965f1f26327de3cf6d73" category="sidebar">Configuraciones para Cloud Volumes ONTAP admitidas</block>
   <block id="d08ccf52b4cdd08e41cfb99ec42e0b29" category="sidebar">Permisos</block>
-  <block id="93168a8084b3e838d2932c4734bd234e" category="sidebar">Versiones anteriores</block>
+  <block id="9b9477e579c3b44dd623d5a6e1ea8d78" category="section-title">BlueXP</block>
+  <block id="1514a9e798eb61fcbaf1fddb8eb82097" category="paragraph">NetApp BlueXP amplía y mejora las funcionalidades que se proporcionan a través de Cloud Manager.</block>
+  <block id="ab226d70455b3dcdb3cf804792103d43" category="inline-link">Ve a la documentación de BlueXP</block>
+  <block id="50523074a17d5fe93be8e3f013a747de" category="paragraph"><block ref="50523074a17d5fe93be8e3f013a747de" category="inline-link-rx"></block></block>
 </blocks>
